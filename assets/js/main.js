@@ -198,6 +198,16 @@
     frame();
   }
 
+  /* hero bloom: pause the full-viewport screen-blend once the hero scrolls away */
+  function initHeroBloom() {
+    if (reduce || !("IntersectionObserver" in window)) return;
+    var hero = $(".hero"), bloom = $(".hero-bloom");
+    if (!hero || !bloom) return;
+    new IntersectionObserver(function (es) {
+      bloom.style.animationPlayState = es[0].isIntersecting ? "running" : "paused";
+    }, { threshold: 0 }).observe(hero);
+  }
+
   /* ─────────────────────────────────────────────────────────────────────
      6. MAGNETIC BUTTONS + CUSTOM CURSOR
      ───────────────────────────────────────────────────────────────────── */
@@ -560,6 +570,7 @@
     initCounters();
     initParallax();
     initMagnetic();
+    initHeroBloom();
   }
 
   /* ── boot ── */
