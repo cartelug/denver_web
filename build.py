@@ -47,6 +47,10 @@ PAGES = [
          title="About — Our Story · Denver Elysium, Akright City",
          desc="The story behind Denver Elysium — a warm, family-run collection of luxury furnished apartments in Akright City, Bwebajja, where every guest is cared for personally.",
          og="About Denver Elysium — Our Story"),
+    dict(slug="faq", crumb="FAQ",
+         title="FAQ — Booking, Check-in & What's Included · Denver Elysium",
+         desc="Answers about booking, payment, check-in times, airport pickup, what's included and long stays at Denver Elysium, Akright City. Still wondering? Message us anytime.",
+         og="Frequently Asked Questions — Denver Elysium"),
     dict(slug="contact", crumb="Contact",
          title="Book Your Stay — Denver Elysium · Contact & Booking",
          desc="Book your stay at Denver Elysium, Akright City. Send your dates via the form, WhatsApp or email — no online payment, just a fast, personal reply. +256 705 359522.",
@@ -122,6 +126,21 @@ def responsive(mid):
         return tag[:-1] + extra + ">"
     return re.sub(r"<img\b[^>]*>", repl, mid)
 
+def hero_preload(mid):
+    """Preload the LCP hero/phero image (the first data-parallax img) with the right size."""
+    m = re.search(r'<img\b[^>]*data-parallax[^>]*>', mid)
+    if not m:
+        return ""
+    tag = m.group(0)
+    ss = re.search(r'srcset="([^"]+)"', tag)
+    sz = re.search(r'sizes="([^"]+)"', tag)
+    src = re.search(r'src="([^"]+)"', tag)
+    if ss and sz:
+        return '<link rel="preload" as="image" imagesrcset="%s" imagesizes="%s" fetchpriority="high">\n' % (ss.group(1), sz.group(1))
+    if src:
+        return '<link rel="preload" as="image" href="%s" fetchpriority="high">\n' % src.group(1)
+    return ""
+
 def build_page(p):
     mid = open(os.path.join(ROOT, "pages", p["slug"] + ".html")).read().strip()
     mid = responsive(mid)
@@ -130,6 +149,8 @@ def build_page(p):
               .replace("{{OGTITLE}}", p["og"]).replace("{{OGDESC}}", p["desc"])
               .replace("{{CANON}}", canon).replace("{{DOMAIN}}", DOMAIN)
               .replace("{{JSONLD}}", jsonld(p, mid)))
+    top = top.replace('<link rel="stylesheet" href="assets/css/styles.css">',
+                      hero_preload(mid) + '<link rel="stylesheet" href="assets/css/styles.css">', 1)
     if p["slug"] in NAV_SLUGS:
         top = top.replace(f'<a href="{p["slug"]}.html">', f'<a href="{p["slug"]}.html" class="active">')
     out = top + "\n\n" + mid + "\n\n" + BOT

@@ -290,6 +290,7 @@ section{padding-block:clamp(72px,9vw,128px);position:relative;}
 .nav-overlay.open .nav-overlay-links a:nth-child(6) span{transition-delay:.33s;}
 .nav-overlay.open .nav-overlay-links a:nth-child(7) span{transition-delay:.38s;}
 .nav-overlay.open .nav-overlay-links a:nth-child(8) span{transition-delay:.43s;}
+.nav-overlay.open .nav-overlay-links a:nth-child(9) span{transition-delay:.48s;}
 .nav-overlay-links a:hover,.nav-overlay-links a:focus-visible,.nav-overlay-links a.active{color:var(--gold-hi);padding-left:12px;}
 .nav-overlay-foot{display:flex;flex-direction:column;gap:18px;margin-top:auto;}
 .nav-overlay-contact{display:flex;flex-direction:column;gap:6px;font-size:14.5px;}
