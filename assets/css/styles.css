@@ -24,6 +24,7 @@
   --ivory:#F8F3E9;
   --cream:#FCFAF3;
   --porcelain:#FFFFFF;
+  --card:#FFFFFF;
   --char:#1A1E17;
   --char-2:#2C3127;
   --stone:#675F52;
@@ -99,6 +100,10 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 ul{list-style:none;}
 ::selection{background:var(--gold);color:var(--ink);}
 :focus-visible{outline:2.5px solid var(--gold);outline-offset:3px;border-radius:5px;}
+.skip{position:fixed;top:-70px;left:16px;z-index:9998;background:var(--ink);color:var(--gold-hi);
+  padding:13px 24px;border-radius:0 0 12px 12px;font-weight:700;font-size:14px;border:1px solid rgba(201,162,75,.45);
+  transition:top .25s var(--e-out);}
+.skip:focus{top:0;}
 
 /* refined scrollbar */
 *{scrollbar-width:thin;scrollbar-color:var(--gold) transparent;}
@@ -139,7 +144,7 @@ section{padding-block:clamp(72px,9vw,128px);position:relative;}
 .shead{max-width:640px;margin-inline:auto;text-align:center;margin-bottom:clamp(46px,5.4vw,72px);}
 .shead.left{text-align:left;margin-inline:0;}
 .shead .sindex{display:block;font-family:'Fraunces',serif;font-style:italic;font-size:15px;
-  color:var(--gold);opacity:.7;margin-bottom:14px;letter-spacing:.04em;}
+  color:var(--gold-dk);opacity:.9;margin-bottom:14px;letter-spacing:.04em;}
 .shead .eyebrow{margin-bottom:18px;}
 .shead h2{font-size:var(--fs-h2);color:var(--char);margin-bottom:18px;}
 .shead .lede{max-width:540px;margin-inline:auto;}
@@ -523,7 +528,7 @@ footer{background:var(--obsidian);background-image:var(--mesh-dark);color:rgba(2
   color:rgba(232,203,133,.78);transition:all .3s var(--e-out);}
 .foot-socials a:hover{border-color:var(--gold);color:var(--gold-hi);background:rgba(201,162,75,.1);transform:translateY(-3px);}
 .foot-socials svg{width:18px;height:18px;}
-.foot-col h4{font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-hi);margin-bottom:20px;}
+.foot-col h3{font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-hi);margin-bottom:20px;}
 .foot-col a,.foot-col p{display:block;font-size:14.5px;color:rgba(248,243,233,.62);margin-bottom:12px;line-height:1.55;transition:color .25s;}
 .foot-col a:hover{color:var(--gold-hi);}
 .foot-bottom{border-top:1px solid rgba(201,162,75,.14);padding-top:30px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;}

@@ -77,6 +77,13 @@
      2. PAGE TRANSITIONS (outgoing curtain → navigate; incoming preloader reveals)
      ───────────────────────────────────────────────────────────────────── */
   function initTransitions() {
+    // bfcache restore must run even for reduced-motion users
+    window.addEventListener("pageshow", function (ev) {
+      if (!ev.persisted) return;
+      var c = $(".curtain"); if (c) c.classList.remove("in");
+      var pl = $(".preloader"); if (pl) pl.classList.add("done");
+      html.classList.remove("preloading");
+    });
     if (reduce) return;
     var curtain = document.createElement("div");
     curtain.className = "curtain";
@@ -100,10 +107,6 @@
       var href = a.href;
       curtain.classList.add("in");
       setTimeout(function () { window.location.href = href; }, 560);
-    });
-    // restore on bfcache back/forward
-    window.addEventListener("pageshow", function (ev) {
-      if (ev.persisted) { curtain.classList.remove("in"); var pl = $(".preloader"); if (pl) pl.classList.add("done"); html.classList.remove("preloading"); }
     });
   }
 
@@ -293,7 +296,15 @@
      8. FAQ ACCORDION
      ───────────────────────────────────────────────────────────────────── */
   function initFaq() {
-    $$(".faq-q").forEach(function (btn) {
+    $$(".faq-q").forEach(function (btn, i) {
+      var panel = btn.parentElement.querySelector(".faq-a");
+      if (panel) {
+        if (!btn.id) btn.id = "faq-btn-" + i;
+        panel.id = "faq-panel-" + i;
+        btn.setAttribute("aria-controls", panel.id);
+        panel.setAttribute("role", "region");
+        panel.setAttribute("aria-labelledby", btn.id);
+      }
       btn.addEventListener("click", function () {
         var item = btn.parentElement, open = item.classList.contains("open");
         $$(".faq-item.open").forEach(function (o) {
@@ -364,7 +375,13 @@
       var c = $("#lbClose", lb); if (c) c.focus();
     }
     function close() { lb.classList.remove("open"); document.body.style.overflow = ""; if (last) last.focus(); }
-    all.forEach(function (el) { el.addEventListener("click", function () { open(el); }); });
+    all.forEach(function (el) {
+      el.setAttribute("tabindex", "0");
+      el.setAttribute("role", "button");
+      if (!el.getAttribute("aria-label")) el.setAttribute("aria-label", "View " + (el.getAttribute("data-cap") || "image") + " full-screen");
+      el.addEventListener("click", function () { open(el); });
+      el.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(el); } });
+    });
     var c = $("#lbClose", lb), n = $("#lbNext", lb), p = $("#lbPrev", lb);
     if (c) c.addEventListener("click", close);
     if (n) n.addEventListener("click", function () { show(idx + 1); });
@@ -389,7 +406,7 @@
      ───────────────────────────────────────────────────────────────────── */
   function initBooking() {
     function val(id) { var el = $("#" + id); return el ? el.value.trim() : ""; }
-    function mark(id, bad) { var el = $("#" + id); if (el) el.classList.toggle("invalid", !!bad); }
+    function mark(id, bad) { var el = $("#" + id); if (el) { el.classList.toggle("invalid", !!bad); el.setAttribute("aria-invalid", bad ? "true" : "false"); } }
     function getForm() {
       var n = val("f-name"), p = val("f-phone"), ci = val("f-checkin"), co = val("f-checkout"),
           rm = val("f-room"), g = val("f-guests"), nt = val("f-notes");
@@ -403,7 +420,7 @@
       return { n: n, p: p, ci: ci, co: co, rm: rm, g: g, nt: nt };
     }
     ["f-name", "f-checkin", "f-checkout", "f-room"].forEach(function (id) {
-      var el = $("#" + id); if (el) el.addEventListener("input", function () { el.classList.remove("invalid"); });
+      var el = $("#" + id); if (el) el.addEventListener("input", function () { el.classList.remove("invalid"); el.removeAttribute("aria-invalid"); });
     });
     function msg(b) {
       var m = "Hello Denver Elysium!%0A%0AI'd like to book a stay:%0A%0A" +
@@ -507,7 +524,7 @@
     })();
 
     // date minimums + linkage
-    function ymd(d) { return d.toISOString().split("T")[0]; }
+    function ymd(d) { var m = d.getMonth() + 1, day = d.getDate(); return d.getFullYear() + "-" + (m < 10 ? "0" + m : m) + "-" + (day < 10 ? "0" + day : day); }
     var today = ymd(new Date()), tmrw = ymd(new Date(Date.now() + 864e5));
     ["f-checkin", "h-checkin"].forEach(function (id) { var el = $("#" + id); if (el) el.min = today; });
     ["f-checkout", "h-checkout"].forEach(function (id) { var el = $("#" + id); if (el) el.min = tmrw; });

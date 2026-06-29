@@ -16,12 +16,12 @@ BOT = open(os.path.join(ROOT, "partials/bottom.html")).read()
 # ── page registry ────────────────────────────────────────────────────────────
 PAGES = [
     dict(slug="index", crumb=None,
-         title="Denver Elysium — Luxury Furnished Apartments · Akright City, Bwebajja",
-         desc="Denver Elysium — luxury fully-furnished apartments & residences in Akright City, Bwebajja. Indoor pool, rooftop lounge, gym & free parking, ~25 minutes from Entebbe Airport. Book direct.",
+         title="Denver Elysium — Luxury Apartments, Akright City",
+         desc="Luxury furnished apartments in Akright City, Bwebajja — indoor pool, rooftop lounge & gym, ~25 min from Entebbe Airport. Book direct with Denver Elysium.",
          og="Denver Elysium — Luxury Furnished Apartments, Akright City"),
     dict(slug="rooms", crumb="Rooms",
          title="Rooms & Rates — Denver Elysium · Akright City, Bwebajja",
-         desc="Studio & two-bedroom fully-furnished apartments at Denver Elysium, Akright City. Self-contained, en-suite, smart TV & fast WiFi — from UGX 180,000/night. Book direct.",
+         desc="Studio & two-bedroom fully-furnished apartments at Denver Elysium, Akright City — self-contained, en-suite, smart TV & fast WiFi, from UGX 180,000/night.",
          og="Rooms & Rates — Denver Elysium"),
     dict(slug="amenities", crumb="Amenities",
          title="Amenities — Denver Elysium · Indoor Pool, Rooftop, Gym",
@@ -45,7 +45,7 @@ PAGES = [
          og="Explore Akright City & Entebbe — Denver Elysium"),
     dict(slug="about", crumb="About",
          title="About — Our Story · Denver Elysium, Akright City",
-         desc="The story behind Denver Elysium — a warm, family-run collection of luxury furnished apartments in Akright City, Bwebajja, where every guest is cared for personally.",
+         desc="The story behind Denver Elysium — a warm, family-run collection of luxury furnished apartments in Akright City, Bwebajja, cared for personally.",
          og="About Denver Elysium — Our Story"),
     dict(slug="faq", crumb="FAQ",
          title="FAQ — Booking, Check-in & What's Included · Denver Elysium",
@@ -53,7 +53,7 @@ PAGES = [
          og="Frequently Asked Questions — Denver Elysium"),
     dict(slug="contact", crumb="Contact",
          title="Book Your Stay — Denver Elysium · Contact & Booking",
-         desc="Book your stay at Denver Elysium, Akright City. Send your dates via the form, WhatsApp or email — no online payment, just a fast, personal reply. +256 705 359522.",
+         desc="Book your stay at Denver Elysium, Akright City. Send your dates via the form, WhatsApp or email — no online payment, just a fast, personal reply.",
          og="Book Your Stay — Denver Elysium"),
 ]
 NAV_SLUGS = {"rooms", "amenities", "gallery", "offers", "location", "about"}
@@ -152,8 +152,8 @@ def build_page(p):
     top = top.replace('<link rel="stylesheet" href="assets/css/styles.css">',
                       hero_preload(mid) + '<link rel="stylesheet" href="assets/css/styles.css">', 1)
     if p["slug"] in NAV_SLUGS:
-        top = top.replace(f'<a href="{p["slug"]}.html">', f'<a href="{p["slug"]}.html" class="active">')
-    out = top + "\n\n" + mid + "\n\n" + BOT
+        top = top.replace(f'<a href="{p["slug"]}.html">', f'<a href="{p["slug"]}.html" class="active" aria-current="page">')
+    out = top + '\n\n<main id="main">\n' + mid + "\n</main>\n\n" + BOT
     open(os.path.join(ROOT, p["slug"] + ".html"), "w").write(out)
     return out
 
@@ -162,7 +162,7 @@ def build_404():
     top = (TOP.replace("{{TITLE}}", "Page not found — Denver Elysium").replace("{{DESC}}", "Sorry, that page can’t be found.")
               .replace("{{OGTITLE}}", "Denver Elysium").replace("{{OGDESC}}", "Luxury furnished apartments, Akright City.")
               .replace("{{CANON}}", BASE + "/404.html").replace("{{DOMAIN}}", DOMAIN).replace("{{JSONLD}}", ""))
-    open(os.path.join(ROOT, "404.html"), "w").write(top + "\n\n" + mid + "\n\n" + BOT)
+    open(os.path.join(ROOT, "404.html"), "w").write(top + '\n\n<main id="main">\n' + mid + "\n</main>\n\n" + BOT)
 
 def write_sitemap():
     urls = []
