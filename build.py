@@ -151,7 +151,7 @@ def build_page(p):
     # robust image fallback: when a remote image fails, also drop srcset so the
     # local fallback in src actually displays (srcset otherwise overrides src).
     mid = mid.replace("this.onerror=null;this.src=this.dataset.fallback",
-                      "this.onerror=null;this.removeAttribute('srcset');this.src=this.dataset.fallback")
+                      "this.onerror=null;this.removeAttribute('srcset');this.loading='eager';this.src=this.dataset.fallback")
     canon = BASE + "/" + ("" if p["slug"] == "index" else p["slug"] + ".html")
     top = (TOP.replace("{{TITLE}}", p["title"]).replace("{{DESC}}", p["desc"])
               .replace("{{OGTITLE}}", p["og"]).replace("{{OGDESC}}", p["desc"])

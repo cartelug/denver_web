@@ -559,7 +559,7 @@
     $$(".year").forEach(function (el) { el.textContent = new Date().getFullYear(); });
     // graceful fallback: if a remote placeholder image fails, swap to local photo
     $$("img[data-fallback]").forEach(function (img) {
-      function swap() { var fb = img.getAttribute("data-fallback"); if (!fb) return; img.removeAttribute("srcset"); if (img.getAttribute("src") !== fb) img.src = fb; }
+      function swap() { var fb = img.getAttribute("data-fallback"); if (!fb) return; img.removeAttribute("srcset"); img.loading = "eager"; if (img.getAttribute("src") !== fb) img.src = fb; else { var s = fb; img.src = ""; img.src = s; } }
       if (img.complete && img.naturalWidth === 0) swap();
       img.addEventListener("error", function handler() { img.removeEventListener("error", handler); swap(); });
     });
