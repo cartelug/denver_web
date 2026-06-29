@@ -131,7 +131,7 @@ def build_page(p):
               .replace("{{CANON}}", canon).replace("{{DOMAIN}}", DOMAIN)
               .replace("{{JSONLD}}", jsonld(p, mid)))
     if p["slug"] in NAV_SLUGS:
-        top = top.replace(f'<a href="{p["slug"]}.html">', f'<a href="{p["slug"]}.html" class="active">', 1)
+        top = top.replace(f'<a href="{p["slug"]}.html">', f'<a href="{p["slug"]}.html" class="active">')
     out = top + "\n\n" + mid + "\n\n" + BOT
     open(os.path.join(ROOT, p["slug"] + ".html"), "w").write(out)
     return out

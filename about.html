@@ -96,10 +96,38 @@
     <div class="nav-actions">
       <a href="tel:+256705359522" class="nav-call"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.15a1 1 0 01.99.84l.74 4.43a1 1 0 01-.54 1.06l-1.55.78a11 11 0 006.1 6.1l.78-1.55a1 1 0 011.06-.54l4.43.74a1 1 0 01.84.99V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>+256 705 359522</a>
       <a href="contact.html" class="btn btn-gold nav-book" data-magnetic="0.3">Book Now</a>
-      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="navOverlay"><span class="burger"><i></i><i></i><i></i></span></button>
     </div>
   </div>
 </nav>
+
+<!-- FULL-SCREEN MOBILE MENU -->
+<div class="nav-overlay" id="navOverlay" aria-hidden="true">
+  <div class="nav-overlay-inner">
+    <span class="nav-overlay-eyebrow eyebrow light">Menu</span>
+    <nav class="nav-overlay-links" aria-label="Primary mobile">
+      <a href="index.html"><span>Home</span></a>
+      <a href="rooms.html"><span>Rooms &amp; Rates</span></a>
+      <a href="amenities.html"><span>Amenities</span></a>
+      <a href="gallery.html"><span>Gallery</span></a>
+      <a href="offers.html"><span>Offers</span></a>
+      <a href="location.html"><span>Location</span></a>
+      <a href="about.html" class="active"><span>About</span></a>
+      <a href="contact.html"><span>Contact</span></a>
+    </nav>
+    <div class="nav-overlay-foot">
+      <div class="nav-overlay-contact">
+        <a href="tel:+256705359522">+256 705 359522</a>
+        <a href="mailto:stay@denverelysium.com">stay@denverelysium.com</a>
+        <span>12–14 Jambura Road, Kakungulu Estates · Akright City, Bwebajja</span>
+      </div>
+      <div class="nav-overlay-cta">
+        <a href="contact.html" class="btn btn-gold btn-lg btn-block">Book Your Stay</a>
+        <a href="https://wa.me/256705359522?text=Hello%20Denver%20Elysium!%20I%27d%20like%20to%20enquire%20about%20a%20stay." target="_blank" rel="noopener" class="btn btn-wa btn-lg btn-block"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.47-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.22 3.07.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35z"/><path d="M12 0C5.37 0 0 5.37 0 12c0 2.13.55 4.12 1.52 5.85L.05 23.53l5.81-1.52A11.96 11.96 0 0012 24c6.63 0 12-5.37 12-12S18.63 0 12 0z"/></svg>WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 <header class="phero grain">
