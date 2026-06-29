@@ -545,6 +545,25 @@ footer{background:var(--obsidian);background-image:var(--mesh-dark);color:rgba(2
 [data-stagger]>*{opacity:0;transform:translateY(34px);transition:opacity .75s var(--e-out),transform .75s var(--e-out);}
 [data-stagger].in>*{opacity:1;transform:none;}
 
+/* ── 18b. PHASE 3: forms, filter, states ───────────────────────────────── */
+.hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;opacity:0;overflow:hidden;pointer-events:none;}
+.field input.invalid,.field select.invalid,.field textarea.invalid{
+  border-color:#c0392b;background:var(--porcelain);box-shadow:0 0 0 4px rgba(192,57,43,.12);}
+.btn.is-busy{opacity:.9;cursor:progress;pointer-events:none;}
+.btn.is-busy .btn-label{position:relative;padding-left:24px;}
+.btn.is-busy .btn-label::before{content:"";position:absolute;left:0;top:50%;width:14px;height:14px;margin-top:-7px;
+  border:2px solid rgba(10,42,38,.3);border-top-color:var(--ink);border-radius:50%;animation:spin .7s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg)}}
+.book-confirm.is-error{display:block;background:rgba(176,58,46,.08);border-color:rgba(176,58,46,.32);color:#9b2c22;}
+
+.gal-filter{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:36px;}
+.gal-chip{padding:10px 20px;border-radius:30px;border:1.5px solid var(--line);background:var(--card);
+  font-weight:700;font-size:13.5px;color:var(--stone);transition:transform .25s var(--e-out),background .25s,border-color .25s,color .25s,box-shadow .25s;}
+.gal-chip:hover{border-color:var(--gold);color:var(--gold-dk);transform:translateY(-2px);}
+.gal-chip.is-active{background:var(--grad-gold);border-color:transparent;color:var(--ink);box-shadow:0 6px 18px rgba(201,162,75,.3);}
+.gal-item.is-hidden{display:none;}
+@keyframes galpop{from{opacity:0;transform:scale(.93)}to{opacity:1;transform:none}}
+
 /* ── 19. RESPONSIVE ────────────────────────────────────────────────────── */
 @media(max-width:1080px){
   .nav-links,.nav-call{display:none;}

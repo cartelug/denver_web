@@ -262,13 +262,19 @@
     onScroll();
     var toggle = $(".nav-toggle"), links = $(".nav-links");
     if (toggle && links) {
+      function closeMenu(focusToggle) {
+        links.classList.remove("open"); toggle.setAttribute("aria-expanded", "false");
+        toggle.setAttribute("aria-label", "Open menu"); if (focusToggle) toggle.focus();
+      }
       toggle.addEventListener("click", function () {
         var open = links.classList.toggle("open");
         toggle.setAttribute("aria-expanded", String(open));
         toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+        if (open) { var a = links.querySelector("a"); if (a) a.focus(); }
       });
-      links.addEventListener("click", function (e) {
-        if (e.target.closest("a")) { links.classList.remove("open"); toggle.setAttribute("aria-expanded", "false"); }
+      links.addEventListener("click", function (e) { if (e.target.closest("a")) closeMenu(false); });
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && links.classList.contains("open")) closeMenu(true);
       });
     }
   }
@@ -306,22 +312,49 @@
   /* ─────────────────────────────────────────────────────────────────────
      10. LIGHTBOX
      ───────────────────────────────────────────────────────────────────── */
-  function initLightbox() {
+  function focusables(c) {
+    return $$('a[href],button:not([disabled]),input,select,textarea,[tabindex]:not([tabindex="-1"])', c)
+      .filter(function (el) { return el.offsetParent !== null || el === document.activeElement; });
+  }
+
+  /* gallery category filter */
+  function initGalleryFilter() {
+    var chips = $$(".gal-chip"); if (!chips.length) return;
     var items = $$(".gal-item");
+    chips.forEach(function (chip) {
+      chip.addEventListener("click", function () {
+        var f = chip.getAttribute("data-filter");
+        chips.forEach(function (c) { var on = c === chip; c.classList.toggle("is-active", on); c.setAttribute("aria-pressed", String(on)); });
+        items.forEach(function (it) {
+          var show = f === "all" || it.getAttribute("data-cat") === f;
+          it.classList.toggle("is-hidden", !show);
+          if (show && !reduce) { it.style.animation = "none"; void it.offsetWidth; it.style.animation = "galpop .45s var(--e-out)"; }
+        });
+      });
+    });
+  }
+
+  function initLightbox() {
+    var all = $$(".gal-item");
     var lb = $("#lightbox");
-    if (!items.length || !lb) return;
+    if (!all.length || !lb) return;
     var img = $("#lbImg", lb), cap = $("#lbCap", lb);
-    var idx = 0, last = null;
+    var list = [], idx = 0, last = null;
+    function visible() { return all.filter(function (e) { return !e.classList.contains("is-hidden"); }); }
     function show(i) {
-      idx = (i + items.length) % items.length;
-      var el = items[idx];
+      idx = (i + list.length) % list.length;
+      var el = list[idx];
       img.src = el.getAttribute("data-full") || (el.querySelector("img") && el.querySelector("img").src);
       img.alt = el.getAttribute("data-cap") || "";
       if (cap) cap.textContent = el.getAttribute("data-cap") || "";
     }
-    function open(i) { last = document.activeElement; show(i); lb.classList.add("open"); document.body.style.overflow = "hidden"; var c = $("#lbClose", lb); if (c) c.focus(); }
+    function open(el) {
+      last = document.activeElement; list = visible(); idx = list.indexOf(el); if (idx < 0) idx = 0;
+      show(idx); lb.classList.add("open"); document.body.style.overflow = "hidden";
+      var c = $("#lbClose", lb); if (c) c.focus();
+    }
     function close() { lb.classList.remove("open"); document.body.style.overflow = ""; if (last) last.focus(); }
-    items.forEach(function (el, i) { el.addEventListener("click", function () { open(i); }); });
+    all.forEach(function (el) { el.addEventListener("click", function () { open(el); }); });
     var c = $("#lbClose", lb), n = $("#lbNext", lb), p = $("#lbPrev", lb);
     if (c) c.addEventListener("click", close);
     if (n) n.addEventListener("click", function () { show(idx + 1); });
@@ -332,6 +365,12 @@
       if (e.key === "Escape") close();
       else if (e.key === "ArrowRight") show(idx + 1);
       else if (e.key === "ArrowLeft") show(idx - 1);
+      else if (e.key === "Tab") {                      // focus trap
+        var f = focusables(lb); if (!f.length) return;
+        var first = f[0], lastEl = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); lastEl.focus(); }
+        else if (!e.shiftKey && document.activeElement === lastEl) { e.preventDefault(); first.focus(); }
+      }
     });
   }
 
@@ -340,13 +379,22 @@
      ───────────────────────────────────────────────────────────────────── */
   function initBooking() {
     function val(id) { var el = $("#" + id); return el ? el.value.trim() : ""; }
+    function mark(id, bad) { var el = $("#" + id); if (el) el.classList.toggle("invalid", !!bad); }
     function getForm() {
       var n = val("f-name"), p = val("f-phone"), ci = val("f-checkin"), co = val("f-checkout"),
           rm = val("f-room"), g = val("f-guests"), nt = val("f-notes");
-      if (!n || !ci || !co || !rm) { alert("Please fill in your name, dates and room type to continue."); return null; }
-      if (new Date(co) <= new Date(ci)) { alert("Check-out must be after check-in."); return null; }
+      mark("f-name", !n); mark("f-checkin", !ci); mark("f-checkout", !co); mark("f-room", !rm);
+      if (!n || !ci || !co || !rm) {
+        alert("Please fill in your name, dates and room type to continue.");
+        var bad = $(".field .invalid"); if (bad) bad.focus();
+        return null;
+      }
+      if (new Date(co) <= new Date(ci)) { mark("f-checkout", true); alert("Check-out must be after check-in."); return null; }
       return { n: n, p: p, ci: ci, co: co, rm: rm, g: g, nt: nt };
     }
+    ["f-name", "f-checkin", "f-checkout", "f-room"].forEach(function (id) {
+      var el = $("#" + id); if (el) el.addEventListener("input", function () { el.classList.remove("invalid"); });
+    });
     function msg(b) {
       var m = "Hello Denver Elysium!%0A%0AI'd like to book a stay:%0A%0A" +
         "Name: " + encodeURIComponent(b.n) + "%0A" +
@@ -356,16 +404,54 @@
       if (b.nt) m += "%0ANotes: " + encodeURIComponent(b.nt);
       return m;
     }
-    function confirmMsg(b) {
+    function confirmMsg(b, custom) {
       var el = $("#bookConfirm"); if (!el) return;
-      el.style.display = "block";
-      el.innerHTML = "✓ Thank you, " + b.n.split(" ")[0] + "! Your request for the " +
-        b.rm.split("—")[0].trim() + " is ready — send it through and we'll confirm your dates shortly.";
+      el.className = "book-confirm"; el.style.display = "block";
+      el.innerHTML = custom || ("✓ Thank you, " + b.n.split(" ")[0] + "! Your request for the " +
+        b.rm.split("—")[0].trim() + " is ready — send it through and we'll confirm your dates shortly.");
       el.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+    function errorMsg(text) {
+      var el = $("#bookConfirm"); if (!el) return;
+      el.className = "book-confirm is-error"; el.style.display = "block"; el.textContent = text;
+      el.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+    function setBusy(btn, on) {
+      if (!btn) return;
+      btn.classList.toggle("is-busy", on); btn.disabled = on;
+      var lbl = btn.querySelector(".btn-label"); if (lbl) lbl.textContent = on ? "Sending…" : "Send request";
     }
     var wa = $("#btnWA"), em = $("#btnEmail");
     if (wa) wa.addEventListener("click", function () { var b = getForm(); if (!b) return; window.open("https://wa.me/" + WA + "?text=" + msg(b), "_blank", "noopener"); confirmMsg(b); });
     if (em) em.addEventListener("click", function () { var b = getForm(); if (!b) return; var body = msg(b).replace(/%0A/g, "%0D%0A"); window.location.href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent("Booking request — " + b.n) + "&body=" + body; confirmMsg(b); });
+
+    // real form submission → Web3Forms (falls back to WhatsApp/email)
+    var form = $("#bookForm");
+    if (form) form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var hp = form.querySelector("[name=botcheck]"); if (hp && hp.checked) return;   // honeypot
+      var b = getForm(); if (!b) return;
+      var keyEl = form.querySelector("[name=access_key]"), key = keyEl ? keyEl.value : "";
+      if (!key || key.indexOf("YOUR_") === 0) {                                        // not configured yet
+        confirmMsg(b, "Your request is ready — tap <b>Send via WhatsApp</b> or <b>Send by email</b> below to deliver it to our team.");
+        return;
+      }
+      var sendBtn = $("#btnSend"); setBusy(sendBtn, true);
+      var fd = new FormData(form);
+      fd.set("subject", "Booking request — " + b.n);
+      fd.append("Stay summary", b.rm + " · " + b.ci + " to " + b.co + " · " + b.g + " guest(s)");
+      fetch("https://api.web3forms.com/submit", { method: "POST", headers: { Accept: "application/json" }, body: fd })
+        .then(function (r) { return r.json(); })
+        .then(function (j) {
+          setBusy(sendBtn, false);
+          if (j && j.success) { confirmMsg(b, "✓ Thank you, " + b.n.split(" ")[0] + "! Your request has been sent — we'll confirm your dates shortly."); form.reset(); }
+          else throw new Error("web3forms");
+        })
+        .catch(function () {
+          setBusy(sendBtn, false);
+          errorMsg("We couldn't send that automatically — please tap “Send via WhatsApp” or “Send by email” below and it'll reach us right away.");
+        });
+    });
 
     function stash(o) { try { sessionStorage.setItem("denver_prefill", JSON.stringify(o)); } catch (e) {} }
 
@@ -455,6 +541,7 @@
     initFaq();
     initTour();
     initLightbox();
+    initGalleryFilter();
     initBooking();
     initMisc();
     initCursor();

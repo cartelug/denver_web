@@ -10,13 +10,22 @@
 <link rel="canonical" href="https://denverelysium.com/gallery.html">
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230A2A26'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='20' fill='%23E8CB85' text-anchor='middle'%3ED%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<link rel="manifest" href="site.webmanifest">
+
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Denver Elysium">
-<meta property="og:title" content="Gallery — Denver Elysium · Luxury Apartments, Akright City">
+<meta property="og:title" content="Gallery — Denver Elysium">
 <meta property="og:description" content="A look inside Denver Elysium — furnished apartments, en-suite bathrooms, the indoor pool, rooftop lounge and more in Akright City, Bwebajja.">
 <meta property="og:url" content="https://denverelysium.com/gallery.html">
-<meta property="og:image" content="https://denverelysium.com/images/bedroom-main.jpg">
+<meta property="og:image" content="https://denverelysium.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Gallery — Denver Elysium">
+<meta name="twitter:description" content="A look inside Denver Elysium — furnished apartments, en-suite bathrooms, the indoor pool, rooftop lounge and more in Akright City, Bwebajja.">
+<meta name="twitter:image" content="https://denverelysium.com/assets/og-image.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,17 +36,21 @@
 
 <script type="application/ld+json">
 {
-  "@context":"https://schema.org","@type":"LodgingBusiness",
-  "name":"Denver Elysium Apartments & Residences",
-  "description":"Luxury fully-furnished apartments and residences in Akright City, Bwebajja — indoor pool, rooftop lounge, fitness gym and free parking, ~25 minutes from Entebbe International Airport.",
-  "image":["https://denverelysium.com/images/bedroom-main.jpg"],
-  "url":"https://denverelysium.com/","telephone":"+256705359522","email":"stay@denverelysium.com",
-  "priceRange":"UGX 180,000–250,000","currenciesAccepted":"UGX",
-  "address":{"@type":"PostalAddress","streetAddress":"12–14 Jambura Road, Kakungulu Estates","addressLocality":"Bwebajja, Akright City","addressRegion":"Wakiso","addressCountry":"UG"},
-  "checkinTime":"14:00","checkoutTime":"11:00",
-  "makesOffer":[
-    {"@type":"Offer","name":"Studio Apartment","price":"180000","priceCurrency":"UGX"},
-    {"@type":"Offer","name":"Two-Bedroom Apartment (breakfast included)","price":"250000","priceCurrency":"UGX"}
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://denverelysium.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Gallery",
+      "item": "https://denverelysium.com/gallery.html"
+    }
   ]
 }
 </script>
@@ -46,7 +59,7 @@
 <body>
 
 <!-- PRELOADER -->
-<div class="preloader" role="status" aria-label="Loading">
+<div class="preloader" role="status" aria-label="Loading Denver Elysium">
   <div class="pl-inner">
     <div class="pl-mark">
       <svg viewBox="0 0 100 100" aria-hidden="true">
@@ -72,24 +85,25 @@
       <span class="brand-mark" aria-hidden="true">D</span>
       <span class="brand-txt"><span class="name">Denver Elysium</span><span class="sub">Akright City · Bwebajja</span></span>
     </a>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
+    <div class="nav-links" id="navLinks">
       <a href="rooms.html">Rooms</a>
       <a href="amenities.html">Amenities</a>
       <a href="gallery.html" class="active">Gallery</a>
+      <a href="offers.html">Offers</a>
       <a href="location.html">Location</a>
-      <a href="contact.html">Contact</a>
+      <a href="about.html">About</a>
     </div>
     <div class="nav-actions">
       <a href="tel:+256705359522" class="nav-call"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.15a1 1 0 01.99.84l.74 4.43a1 1 0 01-.54 1.06l-1.55.78a11 11 0 006.1 6.1l.78-1.55a1 1 0 011.06-.54l4.43.74a1 1 0 01.84.99V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>+256 705 359522</a>
       <a href="contact.html" class="btn btn-gold nav-book" data-magnetic="0.3">Book Now</a>
-      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
     </div>
   </div>
 </nav>
 
+
 <header class="phero grain">
-  <div class="phero-media"><img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1600&q=80" data-fallback="images/bedroom-main.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" data-parallax="0.2" alt="Elegant suite interior at Denver Elysium" width="1920" height="1080"></div>
+  <div class="phero-media"><img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1600&q=80" data-fallback="images/bedroom-main.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" data-parallax="0.2" alt="Elegant suite interior at Denver Elysium" width="1920" height="1080" srcset="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=600&q=80 600w, https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=900&q=80 900w, https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1400&q=80 1400w, https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1920&q=80 1920w" sizes="100vw" decoding="async"></div>
   <div class="phero-veil"></div>
   <div class="phero-inner wrap">
     <div class="crumbs"><a href="index.html">Home</a><span>/</span>Gallery</div>
@@ -107,69 +121,77 @@
       <p class="lede">From sun-filled apartments to the rooftop lounge and the indoor pool, here is a closer look at the spaces that make a stay at Denver Elysium feel quietly extraordinary. Tap any frame to open it full-screen.</p>
     </div>
 
+    <div class="gal-filter" role="group" aria-label="Filter gallery">
+      <button class="gal-chip is-active" data-filter="all" aria-pressed="true">All</button>
+      <button class="gal-chip" data-filter="apartments" aria-pressed="false">Apartments</button>
+      <button class="gal-chip" data-filter="bathrooms" aria-pressed="false">Bathrooms</button>
+      <button class="gal-chip" data-filter="amenities" aria-pressed="false">Amenities</button>
+      <button class="gal-chip" data-filter="exterior" aria-pressed="false">Exterior</button>
+    </div>
+
     <div class="gal-grid" data-stagger="80">
-      <div class="gal-item big" data-full="images/bedroom-main.jpg" data-cap="Two-Bedroom Apartment — master bedroom">
-        <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=900&q=80" data-fallback="images/bedroom-main.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="Master bedroom of the Two-Bedroom Apartment with soft linens and warm light" loading="lazy">
+      <div data-cat="apartments" class="gal-item big" data-full="images/bedroom-main.jpg" data-cap="Two-Bedroom Apartment — master bedroom">
+        <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=900&q=80" data-fallback="images/bedroom-main.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="Master bedroom of the Two-Bedroom Apartment with soft linens and warm light" loading="lazy" srcset="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=600&q=80 600w, https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=900&q=80 900w, https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1400&q=80 1400w, https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1920&q=80 1920w" sizes="(max-width:760px) 100vw, 50vw" decoding="async">
         <span class="gal-label">Two-Bedroom Apartment <span class="ico"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h5M4 4v5M16 16h-5M16 16v-5"/></svg></span></span>
       </div>
 
-      <div class="gal-item wide" data-full="images/bedroom-main.jpg" data-cap="Two-Bedroom Apartment — restful interiors with breakfast included">
-        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=900&q=80" data-fallback="images/bedroom-main.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="Two-Bedroom Apartment interior with calm, restful styling" loading="lazy">
+      <div data-cat="apartments" class="gal-item wide" data-full="images/bedroom-main.jpg" data-cap="Two-Bedroom Apartment — restful interiors with breakfast included">
+        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=900&q=80" data-fallback="images/bedroom-main.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="Two-Bedroom Apartment interior with calm, restful styling" loading="lazy" srcset="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=600&q=80 600w, https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=900&q=80 900w, https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1400&q=80 1400w, https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1920&q=80 1920w" sizes="(max-width:760px) 100vw, 50vw" decoding="async">
         <span class="gal-label">Restful Interiors <span class="ico"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h5M4 4v5M16 16h-5M16 16v-5"/></svg></span></span>
       </div>
 
-      <div class="gal-item" data-full="images/studio-wardrobe.jpg" data-cap="Studio Apartment — fully furnished and self-contained">
-        <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80" data-fallback="images/studio-wardrobe.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="Studio Apartment fully furnished and self-contained" loading="lazy">
+      <div data-cat="apartments" class="gal-item" data-full="images/studio-wardrobe.jpg" data-cap="Studio Apartment — fully furnished and self-contained">
+        <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80" data-fallback="images/studio-wardrobe.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="Studio Apartment fully furnished and self-contained" loading="lazy" srcset="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=600&q=80 600w, https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80 900w, https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1400&q=80 1400w, https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1920&q=80 1920w" sizes="(max-width:760px) 100vw, 50vw" decoding="async">
         <span class="gal-label">Studio Apartment <span class="ico"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h5M4 4v5M16 16h-5M16 16v-5"/></svg></span></span>
       </div>
 
-      <div class="gal-item tall" data-full="images/studio-wardrobe.jpg" data-cap="Studio Apartment — living corner with wardrobe">
-        <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=900&q=80" data-fallback="images/studio-wardrobe.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="Studio living corner with wardrobe and warm natural light" loading="lazy">
+      <div data-cat="apartments" class="gal-item tall" data-full="images/studio-wardrobe.jpg" data-cap="Studio Apartment — living corner with wardrobe">
+        <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=900&q=80" data-fallback="images/studio-wardrobe.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="Studio living corner with wardrobe and warm natural light" loading="lazy" srcset="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=600&q=80 600w, https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=900&q=80 900w, https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=1400&q=80 1400w, https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=1920&q=80 1920w" sizes="(max-width:760px) 100vw, 50vw" decoding="async">
         <span class="gal-label">Studio Living Corner <span class="ico"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h5M4 4v5M16 16h-5M16 16v-5"/></svg></span></span>
       </div>
 
-      <div class="gal-item" data-full="images/studio-tv.jpg" data-cap="Living space with smart TV and comfortable seating">
-        <img src="https://images.unsplash.com/photo-1567767292278-a4f21aa2d36e?auto=format&fit=crop&w=900&q=80" data-fallback="images/studio-tv.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="Living space with smart TV and comfortable seating" loading="lazy">
+      <div data-cat="apartments" class="gal-item" data-full="images/studio-tv.jpg" data-cap="Living space with smart TV and comfortable seating">
+        <img src="https://images.unsplash.com/photo-1567767292278-a4f21aa2d36e?auto=format&fit=crop&w=900&q=80" data-fallback="images/studio-tv.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="Living space with smart TV and comfortable seating" loading="lazy" srcset="https://images.unsplash.com/photo-1567767292278-a4f21aa2d36e?auto=format&fit=crop&w=600&q=80 600w, https://images.unsplash.com/photo-1567767292278-a4f21aa2d36e?auto=format&fit=crop&w=900&q=80 900w, https://images.unsplash.com/photo-1567767292278-a4f21aa2d36e?auto=format&fit=crop&w=1400&q=80 1400w, https://images.unsplash.com/photo-1567767292278-a4f21aa2d36e?auto=format&fit=crop&w=1920&q=80 1920w" sizes="(max-width:760px) 100vw, 50vw" decoding="async">
         <span class="gal-label">Living Space <span class="ico"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h5M4 4v5M16 16h-5M16 16v-5"/></svg></span></span>
       </div>
 
-      <div class="gal-item" data-full="images/bathroom-1.jpg" data-cap="Spotless en-suite bathroom">
-        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=900&q=80" data-fallback="images/bathroom-1.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="Spotless en-suite bathroom with modern fittings" loading="lazy">
+      <div data-cat="bathrooms" class="gal-item" data-full="images/bathroom-1.jpg" data-cap="Spotless en-suite bathroom">
+        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=900&q=80" data-fallback="images/bathroom-1.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="Spotless en-suite bathroom with modern fittings" loading="lazy" srcset="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80 600w, https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=900&q=80 900w, https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1400&q=80 1400w, https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1920&q=80 1920w" sizes="(max-width:760px) 100vw, 50vw" decoding="async">
         <span class="gal-label">En-Suite Bathroom <span class="ico"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h5M4 4v5M16 16h-5M16 16v-5"/></svg></span></span>
       </div>
 
-      <div class="gal-item wide" data-full="images/bathroom-2.jpg" data-cap="Modern bathroom with contemporary fittings">
-        <img src="https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=900&q=80" data-fallback="images/bathroom-2.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="Modern bathroom with contemporary fittings and clean finishes" loading="lazy">
+      <div data-cat="bathrooms" class="gal-item wide" data-full="images/bathroom-2.jpg" data-cap="Modern bathroom with contemporary fittings">
+        <img src="https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=900&q=80" data-fallback="images/bathroom-2.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="Modern bathroom with contemporary fittings and clean finishes" loading="lazy" srcset="https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=600&q=80 600w, https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=900&q=80 900w, https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=1400&q=80 1400w, https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=1920&q=80 1920w" sizes="(max-width:760px) 100vw, 50vw" decoding="async">
         <span class="gal-label">Bathroom Details <span class="ico"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h5M4 4v5M16 16h-5M16 16v-5"/></svg></span></span>
       </div>
 
-      <div class="gal-item tall" data-full="images/bedroom-main.jpg" data-cap="Indoor swimming pool at Denver Elysium">
-        <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=900&q=80" data-fallback="images/bedroom-main.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="Indoor swimming pool at Denver Elysium" loading="lazy">
+      <div data-cat="amenities" class="gal-item tall" data-full="images/bedroom-main.jpg" data-cap="Indoor swimming pool at Denver Elysium">
+        <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=900&q=80" data-fallback="images/bedroom-main.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="Indoor swimming pool at Denver Elysium" loading="lazy" srcset="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=600&q=80 600w, https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=900&q=80 900w, https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=1400&q=80 1400w, https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=1920&q=80 1920w" sizes="(max-width:760px) 100vw, 50vw" decoding="async">
         <span class="gal-label">Indoor Pool <span class="ico"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h5M4 4v5M16 16h-5M16 16v-5"/></svg></span></span>
       </div>
 
-      <div class="gal-item" data-full="images/studio-tv.jpg" data-cap="Rooftop lounge with open-air views">
-        <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=900&q=80" data-fallback="images/studio-tv.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="Rooftop lounge with open-air skyline views" loading="lazy">
+      <div data-cat="amenities" class="gal-item" data-full="images/studio-tv.jpg" data-cap="Rooftop lounge with open-air views">
+        <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=900&q=80" data-fallback="images/studio-tv.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="Rooftop lounge with open-air skyline views" loading="lazy" srcset="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=600&q=80 600w, https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=900&q=80 900w, https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1400&q=80 1400w, https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1920&q=80 1920w" sizes="(max-width:760px) 100vw, 50vw" decoding="async">
         <span class="gal-label">Rooftop Lounge <span class="ico"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h5M4 4v5M16 16h-5M16 16v-5"/></svg></span></span>
       </div>
 
-      <div class="gal-item" data-full="images/studio-wardrobe.jpg" data-cap="Fully equipped fitness gym">
-        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=900&q=80" data-fallback="images/studio-wardrobe.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="Fully equipped fitness gym for guests" loading="lazy">
+      <div data-cat="amenities" class="gal-item" data-full="images/studio-wardrobe.jpg" data-cap="Fully equipped fitness gym">
+        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=900&q=80" data-fallback="images/studio-wardrobe.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="Fully equipped fitness gym for guests" loading="lazy" srcset="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=600&q=80 600w, https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=900&q=80 900w, https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1400&q=80 1400w, https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1920&q=80 1920w" sizes="(max-width:760px) 100vw, 50vw" decoding="async">
         <span class="gal-label">Fitness Gym <span class="ico"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h5M4 4v5M16 16h-5M16 16v-5"/></svg></span></span>
       </div>
 
-      <div class="gal-item" data-full="images/studio-tv.jpg" data-cap="Bar &amp; lounge for unwinding">
-        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80" data-fallback="images/studio-tv.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="Bar and lounge area for guests to unwind" loading="lazy">
+      <div data-cat="amenities" class="gal-item" data-full="images/studio-tv.jpg" data-cap="Bar &amp; lounge for unwinding">
+        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80" data-fallback="images/studio-tv.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="Bar and lounge area for guests to unwind" loading="lazy" srcset="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80 600w, https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80 900w, https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1400&q=80 1400w, https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1920&q=80 1920w" sizes="(max-width:760px) 100vw, 50vw" decoding="async">
         <span class="gal-label">Bar &amp; Lounge <span class="ico"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h5M4 4v5M16 16h-5M16 16v-5"/></svg></span></span>
       </div>
 
-      <div class="gal-item" data-full="images/studio-tv.jpg" data-cap="Dining moments and culinary delights">
-        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80" data-fallback="images/studio-tv.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="Dining space and culinary moments" loading="lazy">
+      <div data-cat="amenities" class="gal-item" data-full="images/studio-tv.jpg" data-cap="Dining moments and culinary delights">
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80" data-fallback="images/studio-tv.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="Dining space and culinary moments" loading="lazy" srcset="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=600&q=80 600w, https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80 900w, https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1400&q=80 1400w, https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1920&q=80 1920w" sizes="(max-width:760px) 100vw, 50vw" decoding="async">
         <span class="gal-label">Dining <span class="ico"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h5M4 4v5M16 16h-5M16 16v-5"/></svg></span></span>
       </div>
 
-      <div class="gal-item" data-full="images/bedroom-main.jpg" data-cap="Exterior facade and arrival">
-        <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=900&q=80" data-fallback="images/bedroom-main.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="Exterior facade of Denver Elysium at arrival" loading="lazy">
+      <div data-cat="exterior" class="gal-item" data-full="images/bedroom-main.jpg" data-cap="Exterior facade and arrival">
+        <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=900&q=80" data-fallback="images/bedroom-main.jpg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="Exterior facade of Denver Elysium at arrival" loading="lazy" srcset="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=600&q=80 600w, https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=900&q=80 900w, https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1400&q=80 1400w, https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1920&q=80 1920w" sizes="(max-width:760px) 100vw, 50vw" decoding="async">
         <span class="gal-label">Exterior &amp; Arrival <span class="ico"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h5M4 4v5M16 16h-5M16 16v-5"/></svg></span></span>
       </div>
     </div>
@@ -206,7 +228,7 @@
       </div>
       <div class="foot-col"><h4>Visit Us</h4><p>12–14 Jambura Road</p><p>Kakungulu Estates, Akright</p><p>Bwebajja — off Entebbe Rd</p></div>
       <div class="foot-col"><h4>Contact</h4><a href="https://wa.me/256705359522" target="_blank" rel="noopener">WhatsApp Us</a><a href="tel:+256705359522">+256 705 359522</a><a href="mailto:stay@denverelysium.com">stay@denverelysium.com</a></div>
-      <div class="foot-col"><h4>Explore</h4><a href="rooms.html">Rooms</a><a href="amenities.html">Amenities</a><a href="gallery.html">Gallery</a><a href="location.html">Location</a><a href="contact.html">Book Now</a></div>
+      <div class="foot-col"><h4>Explore</h4><a href="rooms.html">Rooms &amp; Rates</a><a href="amenities.html">Amenities</a><a href="offers.html">Offers &amp; Long Stays</a><a href="gallery.html">Gallery</a><a href="area.html">Area Guide</a><a href="location.html">Location</a><a href="about.html">About</a></div>
     </div>
     <div class="foot-bottom">
       <p>© <span class="year">2026</span> Denver Elysium Apartments &amp; Residences. All rights reserved.</p>
@@ -222,10 +244,10 @@
   <a href="contact.html" class="btn btn-gold">Book Now</a>
 </div>
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
-  <button class="lb-btn lb-close" id="lbClose" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
-  <button class="lb-btn lb-prev" id="lbPrev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+  <button class="lb-btn lb-close" id="lbClose" aria-label="Close viewer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <button class="lb-btn lb-prev" id="lbPrev" aria-label="Previous image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
   <img class="lb-img" id="lbImg" alt="">
-  <button class="lb-btn lb-next" id="lbNext" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
+  <button class="lb-btn lb-next" id="lbNext" aria-label="Next image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
   <div class="lb-cap" id="lbCap"></div>
 </div>
 
