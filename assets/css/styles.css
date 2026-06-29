@@ -274,12 +274,12 @@ section{padding-block:clamp(72px,9vw,128px);position:relative;}
 
 /* full-screen mobile menu */
 .nav-overlay{position:fixed;inset:0;z-index:115;background:var(--obsidian);background-image:var(--mesh-dark);
-  display:flex;opacity:0;visibility:hidden;transform:translateY(-10px);
+  overflow-y:auto;-webkit-overflow-scrolling:touch;opacity:0;visibility:hidden;transform:translateY(-10px);
   transition:opacity .45s var(--e-out),transform .45s var(--e-out),visibility .45s;}
 .nav-overlay.open{opacity:1;visibility:visible;transform:none;}
-.nav-overlay-inner{width:100%;max-width:580px;margin:auto;
-  padding:calc(var(--nav-h) + 30px) clamp(24px,7vw,52px) calc(30px + env(safe-area-inset-bottom));
-  display:flex;flex-direction:column;gap:clamp(22px,4vh,40px);}
+.nav-overlay-inner{width:100%;max-width:580px;min-height:100%;margin-inline:auto;
+  padding:calc(var(--nav-h) + 26px) clamp(24px,7vw,52px) calc(30px + env(safe-area-inset-bottom));
+  display:flex;flex-direction:column;gap:clamp(20px,3.4vh,38px);}
 .nav-overlay-eyebrow{opacity:.6;}
 .nav-overlay-links{display:flex;flex-direction:column;}
 .nav-overlay-links a{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(27px,7.5vw,40px);
@@ -296,6 +296,7 @@ section{padding-block:clamp(72px,9vw,128px);position:relative;}
 .nav-overlay.open .nav-overlay-links a:nth-child(7) span{transition-delay:.38s;}
 .nav-overlay.open .nav-overlay-links a:nth-child(8) span{transition-delay:.43s;}
 .nav-overlay.open .nav-overlay-links a:nth-child(9) span{transition-delay:.48s;}
+.nav-overlay.open .nav-overlay-links a:nth-child(10) span{transition-delay:.53s;}
 .nav-overlay-links a:hover,.nav-overlay-links a:focus-visible,.nav-overlay-links a.active{color:var(--gold-hi);padding-left:12px;}
 .nav-overlay-foot{display:flex;flex-direction:column;gap:18px;margin-top:auto;}
 .nav-overlay-contact{display:flex;flex-direction:column;gap:6px;font-size:14.5px;}
@@ -432,7 +433,28 @@ section{padding-block:clamp(72px,9vw,128px);position:relative;}
 .review-author .av{width:44px;height:44px;border-radius:50%;background:var(--grad-gold);display:grid;place-items:center;
   font-family:'Fraunces',serif;font-size:19px;color:var(--ink);flex-shrink:0;}
 .review-author .meta b{display:block;font-size:14px;color:var(--ivory);font-weight:700;}
-.review-author .meta span{font-size:12px;color:rgba(248,243,233,.55);}
+.review-author .meta span{display:block;font-size:12px;color:rgba(248,243,233,.55);}
+/* light review variant — for cream sections */
+.review-card.light{background:var(--card);border-color:var(--line);box-shadow:var(--sh-sm);}
+.review-card.light:hover{border-color:rgba(201,162,75,.5);background:var(--card);box-shadow:var(--sh);}
+.review-card.light .review-stars{color:var(--gold);}
+.review-card.light .review-text{color:var(--char-2);}
+.review-card.light .review-author .meta b{color:var(--char);}
+.review-card.light .review-author .meta span{color:var(--stone);}
+.review-src{margin-top:6px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--gold-dk);}
+.review-card:not(.light) .review-src{color:var(--gold-hi);opacity:.8;}
+
+/* editorial pull-quote */
+.pullquote{max-width:920px;margin-inline:auto;text-align:center;position:relative;}
+.pullquote .mark{font-family:'Fraunces',serif;font-size:clamp(78px,12vw,150px);line-height:.55;color:var(--gold);opacity:.3;display:block;margin-bottom:-.06em;}
+.pullquote .pq-stars{color:var(--gold);font-size:18px;letter-spacing:4px;margin-bottom:20px;}
+.pullquote blockquote{font-family:'Fraunces',serif;font-style:italic;font-weight:300;font-size:clamp(23px,3.3vw,40px);line-height:1.42;color:var(--char);letter-spacing:-.01em;margin:0;}
+.pullquote cite{display:block;margin-top:26px;font-style:normal;font-size:13px;font-weight:700;color:var(--gold-dk);letter-spacing:.05em;text-transform:uppercase;}
+.pullquote cite span{display:block;margin-top:5px;font-weight:500;text-transform:none;letter-spacing:0;color:var(--stone);}
+.pullquote.light blockquote{color:#fff;}
+.pullquote.light .pq-stars{color:var(--gold-hi);}
+.pullquote.light cite{color:var(--gold-hi);}
+.pullquote.light cite span{color:rgba(248,243,233,.7);}
 
 /* split / feature row */
 .split{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(40px,6vw,84px);align-items:center;}
