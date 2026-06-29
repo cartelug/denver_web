@@ -352,15 +352,18 @@
   function initGalleryFilter() {
     var chips = $$(".gal-chip"); if (!chips.length) return;
     var items = $$(".gal-item");
+    var status = $("#galStatus");
     chips.forEach(function (chip) {
       chip.addEventListener("click", function () {
-        var f = chip.getAttribute("data-filter");
+        var f = chip.getAttribute("data-filter"), shown = 0;
         chips.forEach(function (c) { var on = c === chip; c.classList.toggle("is-active", on); c.setAttribute("aria-pressed", String(on)); });
         items.forEach(function (it) {
           var show = f === "all" || it.getAttribute("data-cat") === f;
+          if (show) shown++;
           it.classList.toggle("is-hidden", !show);
           if (show && !reduce) { it.style.animation = "none"; void it.offsetWidth; it.style.animation = "galpop .45s var(--e-out)"; }
         });
+        if (status) status.textContent = "Showing " + shown + " " + (shown === 1 ? "image" : "images") + " — " + chip.textContent.trim();
       });
     });
   }
@@ -556,7 +559,7 @@
     $$(".year").forEach(function (el) { el.textContent = new Date().getFullYear(); });
     // graceful fallback: if a remote placeholder image fails, swap to local photo
     $$("img[data-fallback]").forEach(function (img) {
-      function swap() { var fb = img.getAttribute("data-fallback"); if (fb && img.getAttribute("src") !== fb) img.src = fb; }
+      function swap() { var fb = img.getAttribute("data-fallback"); if (!fb) return; img.removeAttribute("srcset"); if (img.getAttribute("src") !== fb) img.src = fb; }
       if (img.complete && img.naturalWidth === 0) swap();
       img.addEventListener("error", function handler() { img.removeEventListener("error", handler); swap(); });
     });
