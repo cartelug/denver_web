@@ -127,8 +127,20 @@
       entries.forEach(function (en) {
         if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); }
       });
-    }, { threshold: 0.12, rootMargin: "0px 0px -7% 0px" });
+    }, { threshold: 0.04, rootMargin: "0px 0px -4% 0px" });
     els.forEach(function (el) { io.observe(el); });
+    // failsafe: never leave content invisible — reveal anything still hidden
+    // once it is scrolled past (top above viewport middle).
+    var sweep = function () {
+      var mid = window.innerHeight * 0.92;
+      els.forEach(function (el) {
+        if (!el.classList.contains("in") && el.getBoundingClientRect().top < mid) {
+          el.classList.add("in"); io.unobserve(el);
+        }
+      });
+    };
+    window.addEventListener("scroll", sweep, { passive: true });
+    window.addEventListener("load", sweep);
   }
 
   /* ─────────────────────────────────────────────────────────────────────
