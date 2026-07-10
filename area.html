@@ -4,12 +4,12 @@
 <script>document.documentElement.classList.add('preloading');</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#0A2A26">
+<meta name="theme-color" content="#0B1D17">
 <meta name="description" content="Explore the area around Denver Elysium — Lake Victoria, Entebbe Airport, Kampala, beaches, dining and getting around. Your guide to Akright City, Bwebajja.">
 <title>Area Guide — Around Akright City & Entebbe · Denver Elysium</title>
 <link rel="canonical" href="https://denverelysium.com/area.html">
 
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230A2A26'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='20' fill='%23E8CB85' text-anchor='middle'%3ED%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230B1D17'/%3E%3Crect x='2.5' y='2.5' width='27' height='27' fill='none' stroke='%23C2A56E' stroke-width='1'/%3E%3Ctext x='16' y='22.5' font-family='Georgia,serif' font-size='17' fill='%23E9DFC8' text-anchor='middle'%3ED%3C/text%3E%3C/svg%3E">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="assets/icon-180.png">
 <link rel="manifest" href="site.webmanifest">
@@ -30,8 +30,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap"></noscript>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap"></noscript>
 <link rel="preload" as="image" imagesrcset="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=600&q=80 600w, https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=900&q=80 900w, https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1400&q=80 1400w, https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1920&q=80 1920w" imagesizes="100vw" fetchpriority="high">
 <link rel="stylesheet" href="assets/css/styles.css">
 
@@ -62,196 +62,233 @@
 
 <!-- PRELOADER -->
 <div class="preloader" role="status" aria-label="Loading Denver Elysium">
-  <div class="pl-inner">
-    <div class="pl-mark">
-      <svg viewBox="0 0 100 100" aria-hidden="true">
-        <defs><linearGradient id="plGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E8CB85"/><stop offset="1" stop-color="#C9A24B"/></linearGradient></defs>
-        <circle class="pl-ring" cx="50" cy="50" r="46"/>
-        <circle class="pl-arc" cx="50" cy="50" r="46"/>
-        <text class="pl-d" x="50" y="65" text-anchor="middle">D</text>
-      </svg>
-    </div>
-    <div class="pl-word">Denver Elysium</div>
-    <span class="pl-rule" aria-hidden="true"></span>
-    <div class="pl-sub">Akright City · Bwebajja</div>
-    <div class="pl-bar"><span></span></div>
+  <div class="pl-frame" aria-hidden="true"></div>
+  <div class="pl-core">
+    <span class="pl-kicker">Akright City &middot; Bwebajja &middot; Uganda</span>
+    <div class="pl-word serif">Denver <em>Elysium</em></div>
+    <div class="pl-rule" aria-hidden="true"><span></span></div>
+    <div class="pl-foot"><span>Apartments &amp; Residences</span><span class="pl-count">0</span></div>
   </div>
-  <div class="pl-count">0<small>%</small></div>
 </div>
 
-<div class="scroll-progress" aria-hidden="true" style="position:fixed;top:0;left:0;right:0;height:2px;z-index:130;transform:scaleX(0);transform-origin:0 50%;background:linear-gradient(90deg,var(--gold),var(--gold-hi));"></div>
+<div class="scroll-progress" aria-hidden="true"></div>
 
-<!-- NAV -->
-<nav class="nav">
+<!-- HEADER -->
+<header class="nav" id="siteNav">
   <div class="nav-inner">
     <a href="index.html" class="brand" aria-label="Denver Elysium home">
       <span class="brand-mark" aria-hidden="true">D</span>
-      <span class="brand-txt"><span class="name">Denver Elysium</span><span class="sub">Akright City · Bwebajja</span></span>
+      <span class="brand-txt"><span class="name">Denver&nbsp;Elysium</span><span class="sub">Apartments &amp; Residences</span></span>
     </a>
-    <div class="nav-links" id="navLinks">
-      <a href="rooms.html">Rooms</a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="rooms.html">Residences</a>
       <a href="amenities.html">Amenities</a>
       <a href="gallery.html">Gallery</a>
       <a href="offers.html">Offers</a>
       <a href="location.html">Location</a>
       <a href="about.html">About</a>
-    </div>
+    </nav>
     <div class="nav-actions">
-      <a href="tel:+256705359522" class="nav-call"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.15a1 1 0 01.99.84l.74 4.43a1 1 0 01-.54 1.06l-1.55.78a11 11 0 006.1 6.1l.78-1.55a1 1 0 011.06-.54l4.43.74a1 1 0 01.84.99V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>+256 705 359522</a>
-      <a href="contact.html" class="btn btn-gold nav-book" data-magnetic="0.3">Book Now</a>
-      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="navOverlay"><span class="burger"><i></i><i></i><i></i></span></button>
+      <a href="tel:+256705359522" class="nav-call"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M2 3a1 1 0 011-1h2.15a1 1 0 01.99.84l.74 4.43a1 1 0 01-.54 1.06l-1.55.78a11 11 0 006.1 6.1l.78-1.55a1 1 0 011.06-.54l4.43.74a1 1 0 01.84.99V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg><span>+256 705 359522</span></a>
+      <a href="contact.html" class="btn btn-primary nav-book">Reserve</a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="navOverlay"><span class="burger" aria-hidden="true"><i></i><i></i></span><span class="nav-toggle-txt">Menu</span></button>
     </div>
   </div>
-</nav>
+</header>
 
-<!-- FULL-SCREEN MOBILE MENU -->
-<div class="nav-overlay" id="navOverlay" aria-hidden="true">
-  <div class="nav-overlay-inner">
-    <span class="nav-overlay-eyebrow eyebrow light">Menu</span>
-    <nav class="nav-overlay-links" aria-label="Primary mobile">
-      <a href="index.html"><span>Home</span></a>
-      <a href="rooms.html"><span>Rooms &amp; Rates</span></a>
-      <a href="amenities.html"><span>Amenities</span></a>
-      <a href="gallery.html"><span>Gallery</span></a>
-      <a href="offers.html"><span>Offers</span></a>
-      <a href="location.html"><span>Location</span></a>
-      <a href="about.html"><span>About</span></a>
-      <a href="reviews.html"><span>Reviews</span></a>
-      <a href="faq.html"><span>FAQ</span></a>
-      <a href="contact.html"><span>Contact</span></a>
-    </nav>
-    <div class="nav-overlay-foot">
-      <div class="nav-overlay-contact">
-        <a href="tel:+256705359522">+256 705 359522</a>
-        <a href="mailto:stay@denverelysium.com">stay@denverelysium.com</a>
-        <span>12–14 Jambura Road, Kakungulu Estates · Akright City, Bwebajja</span>
-      </div>
-      <div class="nav-overlay-cta">
-        <a href="contact.html" class="btn btn-gold btn-lg btn-block">Book Your Stay</a>
-        <a href="https://wa.me/256705359522?text=Hello%20Denver%20Elysium!%20I%27d%20like%20to%20enquire%20about%20a%20stay." target="_blank" rel="noopener" class="btn btn-wa btn-lg btn-block"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.47-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.22 3.07.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35z"/><path d="M12 0C5.37 0 0 5.37 0 12c0 2.13.55 4.12 1.52 5.85L.05 23.53l5.81-1.52A11.96 11.96 0 0012 24c6.63 0 12-5.37 12-12S18.63 0 12 0z"/></svg>WhatsApp</a>
-      </div>
+<!-- FULL-SCREEN MENU -->
+<div class="menu" id="navOverlay" aria-hidden="true">
+  <div class="menu-inner">
+    <div class="menu-main">
+      <span class="menu-eyebrow">Menu</span>
+      <nav class="menu-links" aria-label="Primary mobile">
+        <a href="index.html"><i>01</i><span>Home</span></a>
+        <a href="rooms.html"><i>02</i><span>Residences &amp; Rates</span></a>
+        <a href="amenities.html"><i>03</i><span>Amenities</span></a>
+        <a href="gallery.html"><i>04</i><span>Gallery</span></a>
+        <a href="offers.html"><i>05</i><span>Offers &amp; Long Stays</span></a>
+        <a href="location.html"><i>06</i><span>Location</span></a>
+        <a href="area.html"><i>07</i><span>Area Guide</span></a>
+        <a href="about.html"><i>08</i><span>About</span></a>
+        <a href="reviews.html"><i>09</i><span>Guest Reviews</span></a>
+        <a href="faq.html"><i>10</i><span>FAQ</span></a>
+        <a href="contact.html"><i>11</i><span>Reserve</span></a>
+      </nav>
     </div>
+    <aside class="menu-aside">
+      <div class="menu-card">
+        <span class="label on-dark">The Property</span>
+        <p class="menu-addr">12&ndash;14 Jambura Road<br>Kakungulu Estates, Akright City<br>Bwebajja &mdash; off Entebbe Road</p>
+        <div class="menu-contact">
+          <a href="tel:+256705359522">+256 705 359522</a>
+          <a href="mailto:stay@denverelysium.com">stay@denverelysium.com</a>
+        </div>
+        <div class="menu-cta">
+          <a href="contact.html" class="btn btn-invert btn-block">Reserve a Stay</a>
+          <a href="https://wa.me/256705359522?text=Hello%20Denver%20Elysium!%20I%27d%20like%20to%20enquire%20about%20a%20stay." target="_blank" rel="noopener" class="btn btn-line-dark btn-block">WhatsApp</a>
+        </div>
+      </div>
+      <p class="menu-tag serif"><em>Where luxury feels like home.</em></p>
+    </aside>
   </div>
 </div>
 
 
 <main id="main">
-<header class="phero grain">
-  <div class="phero-media"><img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1600&q=80" data-fallback="images/studio-tv.jpg" onerror="this.onerror=null;this.removeAttribute('srcset');this.loading='eager';this.src=this.dataset.fallback" data-parallax="0.2" alt="The Entebbe and Lake Victoria area near Denver Elysium" width="1920" height="1080" srcset="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=600&q=80 600w, https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=900&q=80 900w, https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1400&q=80 1400w, https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1920&q=80 1920w" sizes="100vw" decoding="async"></div>
-  <div class="phero-veil"></div>
-  <div class="phero-inner wrap">
+<!-- PAGE HERO -->
+<header class="ph">
+  <div class="ph-media"><img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1600&q=80" data-fallback="images/studio-tv.jpg" onerror="this.onerror=null;this.removeAttribute('srcset');this.loading='eager';this.src=this.dataset.fallback" data-parallax="0.14" alt="The Entebbe and Lake Victoria area near Denver Elysium" width="1920" height="1080" srcset="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=600&q=80 600w, https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=900&q=80 900w, https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1400&q=80 1400w, https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1920&q=80 1920w" sizes="100vw" decoding="async"></div>
+  <div class="ph-veil"></div>
+  <div class="ph-inner wrap">
     <div class="crumbs"><a href="index.html">Home</a><span>/</span>Area Guide</div>
-    <h1>Explore <em>Akright City</em> &amp; beyond.</h1>
-    <p class="phero-sub">The airport, the lake and the capital — all within an easy drive of your door.</p>
+    <h1>Akright City <em>&amp; beyond</em>.</h1>
+    <p class="ph-sub">The airport, the lake and the capital — all within an easy drive of your door.</p>
   </div>
 </header>
 
-<section class="sec-cream">
+<!-- AROUND YOU -->
+<section class="sec">
   <div class="wrap">
-    <div class="shead">
-      <span class="sindex">01 — Around you</span>
-      <p class="eyebrow center">A brilliant base</p>
-      <h2>Close to everything that matters.</h2>
-      <p class="lede">Denver Elysium sits on the Entebbe Road corridor in Bwebajja — minutes from the lake and the airport, and a short hop from the heart of Kampala.</p>
+    <div class="chap">
+      <div class="chap-top"><span class="chap-idx">&#8470; 01 &mdash; Around You</span><span class="chap-rule"></span><span class="chap-meta">A brilliant base</span></div>
+      <div class="chap-split">
+        <h2 data-animate="fade-up">Close to everything <em>that matters</em>.</h2>
+        <p class="lede" data-animate="fade-up" data-delay="120">Denver Elysium sits on the Entebbe corridor in Bwebajja — minutes from the lake and the airport, a short hop from the heart of Kampala.</p>
+      </div>
     </div>
-    <div class="amen-grid" data-stagger="80">
-      <div class="amen-card"><div class="amen-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 00-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5L21 16z"/></svg></div><div class="amen-label">Entebbe Int'l Airport</div><div class="amen-note">~25 min drive · airport pickup on request</div></div>
-      <div class="amen-card"><div class="amen-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 16c1.5 0 1.7 1 3 1s1.5-1 3-1 1.7 1 3 1 1.5-1 3-1 1.7 1 3 1 1.5-1 3-1"/><path d="M2 20c1.5 0 1.7 1 3 1s1.5-1 3-1 1.7 1 3 1 1.5-1 3-1 1.7 1 3 1 1.5-1 3-1"/><path d="M7 13l3-9 3 9"/></svg></div><div class="amen-label">Lake Victoria</div><div class="amen-note">Beaches, boat trips &amp; lakeside dining nearby</div></div>
-      <div class="amen-card"><div class="amen-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14"/><path d="M9 21v-4h6v4"/><path d="M9 11h.01M12 11h.01M15 11h.01"/></svg></div><div class="amen-label">Kampala CBD</div><div class="amen-note">~30 min · the capital's business &amp; nightlife</div></div>
-      <div class="amen-card"><div class="amen-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div><div class="amen-label">Munyonyo</div><div class="amen-note">~20 min · resorts, marina &amp; the lakefront</div></div>
-      <div class="amen-card"><div class="amen-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V8l4-2 4 2 6-2v15"/><path d="M9 6v15M13 8v13"/></svg></div><div class="amen-label">Botanical Gardens</div><div class="amen-note">In Entebbe · birdlife, forest walks &amp; the lake</div></div>
-      <div class="amen-card"><div class="amen-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 7l1 13a1 1 0 001 1h12a1 1 0 001-1l1-13M9 7V5a3 3 0 016 0v2"/></svg></div><div class="amen-label">Shopping &amp; markets</div><div class="amen-note">Malls, supermarkets &amp; craft markets close by</div></div>
+    <div class="ledger two" data-stagger="60">
+      <div class="ledger-row"><span class="ledger-idx">01</span><div class="ledger-main"><b>Entebbe Int'l Airport</b><span>Airport pickup on request</span></div><span class="ledger-end strong">~25 min</span></div>
+      <div class="ledger-row"><span class="ledger-idx">02</span><div class="ledger-main"><b>Lake Victoria</b><span>Beaches, boat trips &amp; lakeside dining</span></div><span class="ledger-end strong">nearby</span></div>
+      <div class="ledger-row"><span class="ledger-idx">03</span><div class="ledger-main"><b>Kampala CBD</b><span>The capital's business &amp; nightlife</span></div><span class="ledger-end strong">~30 min</span></div>
+      <div class="ledger-row"><span class="ledger-idx">04</span><div class="ledger-main"><b>Munyonyo</b><span>Resorts, marina &amp; the lakefront</span></div><span class="ledger-end strong">~20 min</span></div>
+      <div class="ledger-row"><span class="ledger-idx">05</span><div class="ledger-main"><b>Botanical Gardens</b><span>Birdlife, forest walks &amp; the lake, in Entebbe</span></div><span class="ledger-end strong">~20 min</span></div>
+      <div class="ledger-row"><span class="ledger-idx">06</span><div class="ledger-main"><b>Shopping &amp; markets</b><span>Malls, supermarkets &amp; craft markets close by</span></div><span class="ledger-end strong">minutes</span></div>
     </div>
   </div>
 </section>
 
-<section class="sec-mesh-cream">
+<!-- GETTING AROUND -->
+<section class="sec sec-tint hairline-top hairline-bottom">
   <div class="wrap split">
     <div class="split-text" data-animate="fade-right">
-      <span class="eyebrow">Getting around</span>
+      <span class="label">&#8470; 02 &mdash; Getting Around</span>
       <h2>Arrive, then <em>relax</em>.</h2>
       <p>Land at Entebbe and we'll have a driver ready — just share your flight details. Once you're settled, ride-hailing (Uber, Bolt &amp; SafeBoda) is everywhere, special-hire taxis are easy to arrange at reception, and car hire can be organised on request.</p>
-      <ul class="loc-list" style="list-style:none;display:flex;flex-direction:column;gap:14px;margin:24px 0">
-        <li style="display:flex;gap:12px;align-items:center;font-weight:600;color:var(--char)"><span style="width:8px;height:8px;background:var(--gold);border-radius:50%;flex-shrink:0"></span>Airport pickup &amp; drop-off on request</li>
-        <li style="display:flex;gap:12px;align-items:center;font-weight:600;color:var(--char)"><span style="width:8px;height:8px;background:var(--gold);border-radius:50%;flex-shrink:0"></span>Ride-hailing &amp; taxis at the door</li>
-        <li style="display:flex;gap:12px;align-items:center;font-weight:600;color:var(--char)"><span style="width:8px;height:8px;background:var(--gold);border-radius:50%;flex-shrink:0"></span>Car hire arranged on request</li>
+      <ul class="spec">
+        <li><b>Airport transfers</b><span>Pickup &amp; drop-off on request</span></li>
+        <li><b>Ride-hailing</b><span>Uber, Bolt &amp; SafeBoda at the door</span></li>
+        <li><b>Car hire</b><span>Arranged on request at reception</span></li>
       </ul>
-      <a href="https://wa.me/256705359522?text=Hello%20Denver%20Elysium!%20I%27d%20like%20to%20arrange%20airport%20pickup." target="_blank" rel="noopener" class="btn btn-dark"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.47-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.22 3.07.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35z"/><path d="M12 0C5.37 0 0 5.37 0 12c0 2.13.55 4.12 1.52 5.85L.05 23.53l5.81-1.52A11.96 11.96 0 0012 24c6.63 0 12-5.37 12-12S18.63 0 12 0z"/></svg> Arrange a pickup</a>
+      <div class="split-actions">
+        <a href="https://wa.me/256705359522?text=Hello%20Denver%20Elysium!%20I%27d%20like%20to%20arrange%20airport%20pickup." target="_blank" rel="noopener" class="btn btn-primary">Arrange a pickup</a>
+        <a href="location.html" class="tlink">See the location <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h14M11 4l6 6-6 6"/></svg></a>
+      </div>
     </div>
     <div class="split-media" data-animate="fade-left">
-      <div class="map-frame"><iframe title="Map of Akright City, Bwebajja" src="https://www.google.com/maps?q=Akright+City+Bwebajja+Entebbe+Road+Uganda&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
-    </div>
-  </div>
-</section>
-
-<section class="sec-mesh-dark grain">
-  <div class="glow glow-emerald" style="width:420px;height:420px;bottom:-100px;left:-80px"></div>
-  <div class="wrap">
-    <div class="shead light">
-      <span class="sindex">02 — Eat, see, do</span>
-      <p class="eyebrow center light">Make the most of it</p>
-      <h2>A few of our favourites.</h2>
-    </div>
-    <div class="amen-grid" data-stagger="80">
-      <div class="amen-card"><div class="amen-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v8a3 3 0 006 0V3M9 3v18M17 3c-1 2-1 5-1 7h2c0-2 0-5-1-7zM16 10v11"/></svg></div><div class="amen-label">Lakeside dining</div><div class="amen-note">Fresh tilapia and sundowners along Lake Victoria.</div></div>
-      <div class="amen-card"><div class="amen-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18l5-5 4 4 9-9"/><path d="M3 18h18"/></svg></div><div class="amen-label">Beaches &amp; boat trips</div><div class="amen-note">Sandy shores and island day-trips a short drive away.</div></div>
-      <div class="amen-card"><div class="amen-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.5 5 5.5.8-4 3.9.9 5.5L12 21l-4.9 2.6.9-5.5-4-3.9 5.5-.8z"/></svg></div><div class="amen-label">Nature &amp; birdlife</div><div class="amen-note">Wetlands, forest walks and the Entebbe gardens.</div></div>
-      <div class="amen-card"><div class="amen-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-6 9 6v11a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1z"/></svg></div><div class="amen-label">Business &amp; events</div><div class="amen-note">Easy reach of Kampala, Munyonyo &amp; conference venues.</div></div>
-    </div>
-  </div>
-</section>
-
-<section class="sec-cream">
-  <div class="wrap">
-    <div class="cta-band grain" data-animate="scale">
-      <div class="glow glow-gold" style="width:340px;height:340px;top:-60px;left:50%;transform:translateX(-50%)"></div>
-      <p class="eyebrow center light" style="justify-content:center;margin-bottom:18px">Your base for it all</p>
-      <h2>Stay where it's <em>easy</em>.</h2>
-      <p>Close to the airport, the lake and the city — and a calm, comfortable home to come back to each night.</p>
-      <div class="cta-actions">
-        <a href="contact.html" class="btn btn-gold btn-lg" data-magnetic="0.25">Book Your Stay</a>
-        <a href="location.html" class="btn btn-ghost btn-lg">See the Location</a>
+      <div class="map-frame" style="min-height:440px;height:100%">
+        <iframe title="Map of Akright City, Bwebajja" src="https://www.google.com/maps?q=Akright+City+Bwebajja+Entebbe+Road+Uganda&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
+      <div class="media-cap"><span class="cap">Bwebajja &middot; Entebbe Road corridor</span><span class="val">easy in every direction</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- EAT SEE DO -->
+<section class="sec sec-dark">
+  <div class="wrap">
+    <div class="chap">
+      <div class="chap-top"><span class="chap-idx">&#8470; 03 &mdash; Eat, See, Do</span><span class="chap-rule"></span><span class="chap-meta">Our favourites</span></div>
+      <div class="chap-split">
+        <h2 data-animate="fade-up">Make the most <em>of it</em>.</h2>
+        <p class="lede" data-animate="fade-up" data-delay="120">Honest recommendations from people who live here — ask the front desk and we'll point you right.</p>
+      </div>
+    </div>
+    <div class="ledger two" data-stagger="60">
+      <div class="ledger-row"><span class="ledger-idx">01</span><div class="ledger-main"><b>Lakeside dining</b><span>Fresh tilapia and sundowners along Lake Victoria</span></div></div>
+      <div class="ledger-row"><span class="ledger-idx">02</span><div class="ledger-main"><b>Beaches &amp; boat trips</b><span>Sandy shores and island day-trips a short drive away</span></div></div>
+      <div class="ledger-row"><span class="ledger-idx">03</span><div class="ledger-main"><b>Nature &amp; birdlife</b><span>Wetlands, forest walks and the Entebbe gardens</span></div></div>
+      <div class="ledger-row"><span class="ledger-idx">04</span><div class="ledger-main"><b>Business &amp; events</b><span>Easy reach of Kampala, Munyonyo &amp; conference venues</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="cta-frame" aria-hidden="true"></div>
+  <div class="cta-inner">
+    <span class="label center on-dark bare" data-animate="fade-up">Your base for it all</span>
+    <h2 data-animate="fade-up" data-delay="100">Stay where it's <em>easy</em>.</h2>
+    <p data-animate="fade-up" data-delay="180">Close to the airport, the lake and the city — and a calm, comfortable home to come back to each night.</p>
+    <div class="cta-actions" data-animate="fade-up" data-delay="260">
+      <a href="contact.html" class="btn btn-invert btn-lg">Reserve a Stay</a>
+      <a href="location.html" class="btn btn-line-dark btn-lg">See the Location</a>
     </div>
   </div>
 </section>
 </main>
 
 <!-- FOOTER -->
-<footer>
+<footer class="foot">
   <div class="wrap">
+    <div class="foot-mark" aria-hidden="true">
+      <span class="serif">Denver <em>Elysium</em></span>
+    </div>
     <div class="foot-grid">
       <div class="foot-brand">
-        <a href="index.html" class="brand"><span class="brand-mark" aria-hidden="true">D</span><span class="brand-txt"><span class="name">Denver Elysium</span><span class="sub">Apartments &amp; Residences</span></span></a>
-        <p>Furnished apartments &amp; residences in Akright City — where luxury feels like home. A warm welcome, minutes from Entebbe.</p>
+        <span class="label on-dark">Apartments &amp; Residences</span>
+        <p>Fully furnished apartments in the gated calm of Akright City &mdash; an indoor pool, rooftop lounge and gym, twenty-five minutes from Entebbe International Airport.</p>
         <div class="foot-socials">
           <a href="https://wa.me/256705359522" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.47-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.22 3.07.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35z"/><path d="M12 0C5.37 0 0 5.37 0 12c0 2.13.55 4.12 1.52 5.85L.05 23.53l5.81-1.52A11.96 11.96 0 0012 24c6.63 0 12-5.37 12-12S18.63 0 12 0z"/></svg></a>
           <a href="tel:+256705359522" aria-label="Call"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 3a1 1 0 011-1h2.15a1 1 0 01.99.84l.74 4.43a1 1 0 01-.54 1.06l-1.55.78a11 11 0 006.1 6.1l.78-1.55a1 1 0 011.06-.54l4.43.74a1 1 0 01.84.99V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg></a>
           <a href="mailto:stay@denverelysium.com" aria-label="Email"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M2 5.88L10 9.88l8-4A2 2 0 0016 4H4a2 2 0 00-2 1.88z"/><path d="M18 8.12l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.12z"/></svg></a>
         </div>
       </div>
-      <div class="foot-col"><h3>Visit Us</h3><p>12–14 Jambura Road</p><p>Kakungulu Estates, Akright</p><p>Bwebajja — off Entebbe Rd</p></div>
-      <div class="foot-col"><h3>Contact</h3><a href="https://wa.me/256705359522" target="_blank" rel="noopener">WhatsApp Us</a><a href="tel:+256705359522">+256 705 359522</a><a href="mailto:stay@denverelysium.com">stay@denverelysium.com</a></div>
-      <div class="foot-col"><h3>Explore</h3><a href="rooms.html">Rooms &amp; Rates</a><a href="amenities.html">Amenities</a><a href="offers.html">Offers &amp; Long Stays</a><a href="gallery.html">Gallery</a><a href="area.html">Area Guide</a><a href="location.html">Location</a><a href="about.html">About</a><a href="reviews.html">Reviews</a><a href="faq.html">FAQ</a></div>
+      <div class="foot-col">
+        <h3 class="label on-dark">Visit</h3>
+        <p>12&ndash;14 Jambura Road</p>
+        <p>Kakungulu Estates, Akright City</p>
+        <p>Bwebajja &mdash; off Entebbe Road</p>
+        <p>Wakiso, Uganda</p>
+      </div>
+      <div class="foot-col">
+        <h3 class="label on-dark">Contact</h3>
+        <a href="https://wa.me/256705359522" target="_blank" rel="noopener">WhatsApp us</a>
+        <a href="tel:+256705359522">+256 705 359522</a>
+        <a href="mailto:stay@denverelysium.com">stay@denverelysium.com</a>
+        <p class="foot-hours">Front desk &mdash; 24 hours</p>
+      </div>
+      <div class="foot-col">
+        <h3 class="label on-dark">Explore</h3>
+        <a href="rooms.html">Residences &amp; Rates</a>
+        <a href="amenities.html">Amenities</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="offers.html">Offers &amp; Long Stays</a>
+        <a href="location.html">Location</a>
+        <a href="area.html">Area Guide</a>
+        <a href="reviews.html">Guest Reviews</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Reserve</a>
+      </div>
     </div>
     <div class="foot-bottom">
-      <p>© <span class="year">2026</span> Denver Elysium Apartments &amp; Residences. All rights reserved.</p>
-      <p class="made"><svg viewBox="0 0 20 20" fill="currentColor"><path d="M3.17 5.17a4 4 0 015.66 0L10 6.34l1.17-1.17a4 4 0 115.66 5.66L10 17.66l-6.83-6.83a4 4 0 010-5.66z"/></svg> Crafted with care in Kampala</p>
+      <p>&copy; <span class="year">2026</span> Denver Elysium Apartments &amp; Residences &middot; All rights reserved</p>
+      <p class="made">Crafted with care in Kampala</p>
+      <button class="to-top" id="toTop" aria-label="Back to top"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 16V4M5 9l5-5 5 5"/></svg><span>Top</span></button>
     </div>
   </div>
 </footer>
 
 <!-- FLOATING + MOBILE BAR + LIGHTBOX -->
-<a class="wa-float" href="https://wa.me/256705359522?text=Hello%20Denver%20Elysium!%20I%27d%20like%20to%20enquire%20about%20a%20stay." target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><span class="pulse" aria-hidden="true"></span><svg viewBox="0 0 24 24"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.47-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.22 3.07.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35z"/><path d="M12 0C5.37 0 0 5.37 0 12c0 2.13.55 4.12 1.52 5.85L.05 23.53l5.81-1.52A11.96 11.96 0 0012 24c6.63 0 12-5.37 12-12S18.63 0 12 0z"/></svg></a>
+<a class="wa-float" href="https://wa.me/256705359522?text=Hello%20Denver%20Elysium!%20I%27d%20like%20to%20enquire%20about%20a%20stay." target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.47-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.22 3.07.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35z"/><path d="M12 0C5.37 0 0 5.37 0 12c0 2.13.55 4.12 1.52 5.85L.05 23.53l5.81-1.52A11.96 11.96 0 0012 24c6.63 0 12-5.37 12-12S18.63 0 12 0z"/></svg></a>
 <div class="mobile-bar">
   <a href="https://wa.me/256705359522?text=Hello%20Denver%20Elysium!%20I%27d%20like%20to%20enquire%20about%20a%20stay." target="_blank" rel="noopener" class="btn btn-wa"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.47-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.22 3.07.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35z"/><path d="M12 0C5.37 0 0 5.37 0 12c0 2.13.55 4.12 1.52 5.85L.05 23.53l5.81-1.52A11.96 11.96 0 0012 24c6.63 0 12-5.37 12-12S18.63 0 12 0z"/></svg>WhatsApp</a>
-  <a href="contact.html" class="btn btn-gold">Book Now</a>
+  <a href="contact.html" class="btn btn-primary">Reserve</a>
 </div>
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
-  <button class="lb-btn lb-close" id="lbClose" aria-label="Close viewer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
-  <button class="lb-btn lb-prev" id="lbPrev" aria-label="Previous image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+  <button class="lb-btn lb-close" id="lbClose" aria-label="Close viewer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <button class="lb-btn lb-prev" id="lbPrev" aria-label="Previous image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
   <img class="lb-img" id="lbImg" alt="">
-  <button class="lb-btn lb-next" id="lbNext" aria-label="Next image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
+  <button class="lb-btn lb-next" id="lbNext" aria-label="Next image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
   <div class="lb-cap" id="lbCap"></div>
 </div>
 

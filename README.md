@@ -2,8 +2,13 @@
 
 Marketing site for **Denver Elysium**, luxury furnished apartments & residences in
 Akright City, Bwebajja (Uganda). Static, zero-build, hosted on **GitHub Pages** from the
-`main` branch. Premium design system, preloader + page transitions, scroll animations,
-and a direct-booking enquiry flow (WhatsApp / email / optional form capture).
+`main` branch.
+
+Design system v3 — **"Plaster & Bronze"**: quiet international luxury (warm limestone
+paper, deep forest ink, a single bronze accent, hairline ledger rules, editorial chapter
+numbering). Type: Cormorant Garamond (display serif) + Jost (geometric sans). Preloader +
+page transitions, restrained scroll motion, and a direct-booking enquiry flow
+(WhatsApp / email / optional form capture).
 
 ## Live
 GitHub Pages serves `main` → `https://cartelug.github.io/denver_web/`

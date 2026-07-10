@@ -1,8 +1,8 @@
 /* ════════════════════════════════════════════════════════════════════════
-   DENVER ELYSIUM — Behavior engine (v2)
-   Preloader · page transitions · scroll-animation engine · parallax ·
-   counters · magnetic buttons · custom cursor · lightbox · nav · booking
-   Vanilla JS, no dependencies. Reduced-motion aware.
+   DENVER ELYSIUM — Behaviour engine (v3 · "Plaster & Bronze")
+   Preloader · page transitions · scroll reveals · parallax · counters ·
+   nav & full-screen menu · FAQ · video tour · lightbox · gallery filter ·
+   horizontal strip · booking flow. Vanilla JS, zero deps, reduced-motion aware.
    ════════════════════════════════════════════════════════════════════════ */
 (function () {
   "use strict";
@@ -11,24 +11,21 @@
   var $ = function (s, c) { return (c || document).querySelector(s); };
   var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var fine = window.matchMedia("(pointer: fine)").matches;
   var html = document.documentElement;
 
   /* ─────────────────────────────────────────────────────────────────────
-     1. PRELOADER  (full on first session visit, quick afterwards)
+     1. PRELOADER  (full on first session visit, brief afterwards)
      ───────────────────────────────────────────────────────────────────── */
   function runPreloader() {
     var pl = $(".preloader");
     if (!pl) { html.classList.remove("preloading"); startup(); return; }
     var seen = false;
     try { seen = sessionStorage.getItem("denver_seen") === "1"; } catch (e) {}
-    var arc = $(".pl-arc", pl);
-    var bar = $(".pl-bar span", pl);
+    var bar = $(".pl-rule span", pl);
     var count = $(".pl-count", pl);
-    var ARC = 289;
     var pct = 0, target = 0, raf;
     var full = !seen && !reduce;
-    var minDur = full ? 1500 : 420;
+    var minDur = full ? 1600 : 400;
     var t0 = performance.now();
     var loaded = false;
 
@@ -36,13 +33,11 @@
       pct += (target - pct) * 0.12;
       if (pct > 99.6) pct = target >= 100 ? 100 : pct;
       var v = Math.min(100, Math.round(pct));
-      if (count) count.innerHTML = v + "<small>%</small>";
-      if (bar) bar.style.width = v + "%";
-      if (arc) arc.style.strokeDashoffset = (ARC - (ARC * v) / 100).toFixed(1);
+      if (count) count.textContent = v;
+      if (bar) bar.style.transform = "scaleX(" + (v / 100) + ")";
       if (pct < 99.9 || target < 100) raf = requestAnimationFrame(paint);
       else finish();
     }
-    // ease target toward 90% while loading, snap to 100 when ready + min time passed
     var creep = setInterval(function () {
       if (target < 90) target += full ? 2.4 : 9;
       if (target > 90) target = 90;
@@ -66,18 +61,17 @@
         pl.classList.add("done");
         html.classList.remove("preloading");
         startup();
-        setTimeout(function () { if (pl && pl.parentNode) pl.parentNode.removeChild(pl); }, 900);
-      }, full ? 260 : 80);
+        setTimeout(function () { if (pl && pl.parentNode) pl.parentNode.removeChild(pl); }, 1100);
+      }, full ? 300 : 80);
     }
     if (reduce) { target = 100; if (count) count.textContent = "100"; paint(); }
     else raf = requestAnimationFrame(paint);
   }
 
   /* ─────────────────────────────────────────────────────────────────────
-     2. PAGE TRANSITIONS (outgoing curtain → navigate; incoming preloader reveals)
+     2. PAGE TRANSITIONS  (curtain wipe out → navigate; preloader reveals in)
      ───────────────────────────────────────────────────────────────────── */
   function initTransitions() {
-    // bfcache restore must run even for reduced-motion users
     window.addEventListener("pageshow", function (ev) {
       if (!ev.persisted) return;
       var c = $(".curtain"); if (c) c.classList.remove("in");
@@ -87,7 +81,7 @@
     if (reduce) return;
     var curtain = document.createElement("div");
     curtain.className = "curtain";
-    curtain.innerHTML = '<span class="c-mark serif">Denver Elysium</span>';
+    curtain.innerHTML = '<span class="c-mark serif">Denver <em>Elysium</em></span>';
     document.body.appendChild(curtain);
 
     function isInternal(a) {
@@ -106,12 +100,12 @@
       e.preventDefault();
       var href = a.href;
       curtain.classList.add("in");
-      setTimeout(function () { window.location.href = href; }, 560);
+      setTimeout(function () { window.location.href = href; }, 580);
     });
   }
 
   /* ─────────────────────────────────────────────────────────────────────
-     3. SCROLL ANIMATION ENGINE  (runs after preloader → startup())
+     3. SCROLL REVEAL ENGINE
      ───────────────────────────────────────────────────────────────────── */
   function initReveal() {
     var els = $$("[data-animate],[data-stagger],.img-reveal,.reveal-lines");
@@ -132,8 +126,7 @@
       });
     }, { threshold: 0.04, rootMargin: "0px 0px -4% 0px" });
     els.forEach(function (el) { io.observe(el); });
-    // failsafe: never leave content invisible — reveal anything still hidden
-    // once it is scrolled past (top above viewport middle).
+    // failsafe: never leave content invisible once it has been scrolled past
     var sweep = function () {
       var mid = window.innerHeight * 0.92;
       els.forEach(function (el) {
@@ -157,7 +150,7 @@
       var suf = el.getAttribute("data-suffix") || "";
       var dec = (el.getAttribute("data-dec") || "0") | 0;
       if (reduce) { el.textContent = tgt.toFixed(dec) + suf; return; }
-      var s = null, dur = 1400;
+      var s = null, dur = 1500;
       function step(ts) {
         if (!s) s = ts;
         var p = Math.min(1, (ts - s) / dur), e = 1 - Math.pow(1 - p, 3);
@@ -186,7 +179,7 @@
       els.forEach(function (el) {
         var r = el.getBoundingClientRect();
         if (r.bottom < -200 || r.top > vh + 200) return;
-        var speed = parseFloat(el.getAttribute("data-parallax")) || 0.18;
+        var speed = parseFloat(el.getAttribute("data-parallax")) || 0.16;
         var off = (r.top + r.height / 2 - vh / 2) * -speed;
         el.style.transform = "translate3d(0," + off.toFixed(1) + "px,0)";
       });
@@ -198,73 +191,24 @@
     frame();
   }
 
-  /* hero bloom: pause the full-viewport screen-blend once the hero scrolls away */
-  function initHeroBloom() {
-    if (reduce || !("IntersectionObserver" in window)) return;
-    var hero = $(".hero"), bloom = $(".hero-bloom");
-    if (!hero || !bloom) return;
-    new IntersectionObserver(function (es) {
-      bloom.style.animationPlayState = es[0].isIntersecting ? "running" : "paused";
-    }, { threshold: 0 }).observe(hero);
-  }
-
   /* ─────────────────────────────────────────────────────────────────────
-     6. MAGNETIC BUTTONS + CUSTOM CURSOR
+     6. NAV  (scrolled state, auto-hide, menu overlay, scroll progress)
      ───────────────────────────────────────────────────────────────────── */
-  function initMagnetic() {
-    if (!fine || reduce) return;
-    $$("[data-magnetic]").forEach(function (el) {
-      var str = parseFloat(el.getAttribute("data-magnetic")) || 0.3;
-      el.addEventListener("mousemove", function (e) {
-        var r = el.getBoundingClientRect();
-        var x = (e.clientX - r.left - r.width / 2) * str;
-        var y = (e.clientY - r.top - r.height / 2) * str;
-        el.style.transform = "translate(" + x.toFixed(1) + "px," + y.toFixed(1) + "px)";
-      });
-      el.addEventListener("mouseleave", function () { el.style.transform = ""; });
-    });
+  function focusables(c) {
+    return $$('a[href],button:not([disabled]),input,select,textarea,[tabindex]:not([tabindex="-1"])', c)
+      .filter(function (el) { return el.offsetParent !== null || el === document.activeElement; });
   }
-  function initCursor() {
-    if (!fine || reduce) return;
-    var dot = document.createElement("div"); dot.className = "cursor-dot";
-    var ring = document.createElement("div"); ring.className = "cursor-ring";
-    document.body.appendChild(dot); document.body.appendChild(ring);
-    var mx = 0, my = 0, rx = 0, ry = 0, shown = false;
-    document.addEventListener("mousemove", function (e) {
-      mx = e.clientX; my = e.clientY;
-      dot.style.left = mx + "px"; dot.style.top = my + "px";
-      if (!shown) { shown = true; dot.style.opacity = "1"; ring.style.opacity = "1"; }
-    });
-    (function loop() {
-      rx += (mx - rx) * 0.18; ry += (my - ry) * 0.18;
-      ring.style.left = rx + "px"; ring.style.top = ry + "px";
-      requestAnimationFrame(loop);
-    })();
-    document.addEventListener("mouseover", function (e) {
-      if (e.target.closest("a,button,[data-magnetic],.gal-item,.faq-q,input,select,textarea")) {
-        ring.classList.add("hover"); dot.classList.add("hover");
-      }
-    });
-    document.addEventListener("mouseout", function (e) {
-      if (e.target.closest("a,button,[data-magnetic],.gal-item,.faq-q,input,select,textarea")) {
-        ring.classList.remove("hover"); dot.classList.remove("hover");
-      }
-    });
-    document.addEventListener("mouseleave", function () { dot.style.opacity = "0"; ring.style.opacity = "0"; });
-  }
-
-  /* ─────────────────────────────────────────────────────────────────────
-     7. NAV  (scrolled, auto-hide, mobile, scroll progress)
-     ───────────────────────────────────────────────────────────────────── */
   function initNav() {
     var nav = $(".nav"); if (!nav) return;
     var prog = $(".scroll-progress");
     var lastY = window.scrollY;
+    var overlay = $("#navOverlay");
+    function menuOpen() { return overlay && overlay.classList.contains("open"); }
     function onScroll() {
       var y = window.scrollY;
-      nav.classList.toggle("scrolled", y > 36);
-      if (y > 380 && y > lastY + 6) nav.classList.add("hide");
-      else if (y < lastY - 6 || y < 380) nav.classList.remove("hide");
+      nav.classList.toggle("scrolled", y > 40 || menuOpen());
+      if (y > 420 && y > lastY + 6 && !menuOpen()) nav.classList.add("hide");
+      else if (y < lastY - 6 || y < 420) nav.classList.remove("hide");
       lastY = y;
       if (prog) {
         var h = document.documentElement.scrollHeight - window.innerHeight;
@@ -273,7 +217,8 @@
     }
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
-    var toggle = $(".nav-toggle"), overlay = $("#navOverlay");
+
+    var toggle = $(".nav-toggle");
     if (toggle && overlay) {
       function setMenu(open) {
         overlay.classList.toggle("open", open);
@@ -282,7 +227,10 @@
         toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
         overlay.setAttribute("aria-hidden", String(!open));
         document.body.style.overflow = open ? "hidden" : "";
-        if (open) { var a = overlay.querySelector("a"); if (a) setTimeout(function () { a.focus(); }, 80); }
+        nav.classList.toggle("menu-open", open);
+        if (open) { nav.classList.remove("hide"); }
+        onScroll();
+        if (open) { var a = overlay.querySelector("a"); if (a) setTimeout(function () { a.focus(); }, 120); }
         else toggle.focus();
       }
       toggle.addEventListener("click", function () { setMenu(!overlay.classList.contains("open")); });
@@ -300,10 +248,22 @@
         }
       });
     }
+    var toTop = $("#toTop");
+    if (toTop) toTop.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+    });
+    // avoid stacking two booking CTAs: hide the mobile bar while the hero
+    // booking strip is on screen
+    var mb = $(".mobile-bar"), bb = $(".hero-foot");
+    if (mb && bb && "IntersectionObserver" in window) {
+      new IntersectionObserver(function (es) {
+        mb.classList.toggle("out", es[0].isIntersecting);
+      }, { threshold: 0.25 }).observe(bb);
+    }
   }
 
   /* ─────────────────────────────────────────────────────────────────────
-     8. FAQ ACCORDION
+     7. FAQ ACCORDION
      ───────────────────────────────────────────────────────────────────── */
   function initFaq() {
     $$(".faq-q").forEach(function (btn, i) {
@@ -327,7 +287,7 @@
   }
 
   /* ─────────────────────────────────────────────────────────────────────
-     9. VIDEO TOUR FACADE
+     8. VIDEO TOUR FACADE
      ───────────────────────────────────────────────────────────────────── */
   function initTour() {
     var tv = $("#tourVideo"), tp = $("#tourPlay"), cap = $("#tourCap");
@@ -341,14 +301,8 @@
   }
 
   /* ─────────────────────────────────────────────────────────────────────
-     10. LIGHTBOX
+     9. GALLERY FILTER + LIGHTBOX + HORIZONTAL STRIP
      ───────────────────────────────────────────────────────────────────── */
-  function focusables(c) {
-    return $$('a[href],button:not([disabled]),input,select,textarea,[tabindex]:not([tabindex="-1"])', c)
-      .filter(function (el) { return el.offsetParent !== null || el === document.activeElement; });
-  }
-
-  /* gallery category filter */
   function initGalleryFilter() {
     var chips = $$(".gal-chip"); if (!chips.length) return;
     var items = $$(".gal-item");
@@ -405,7 +359,7 @@
       if (e.key === "Escape") close();
       else if (e.key === "ArrowRight") show(idx + 1);
       else if (e.key === "ArrowLeft") show(idx - 1);
-      else if (e.key === "Tab") {                      // focus trap
+      else if (e.key === "Tab") {
         var f = focusables(lb); if (!f.length) return;
         var first = f[0], lastEl = f[f.length - 1];
         if (e.shiftKey && document.activeElement === first) { e.preventDefault(); lastEl.focus(); }
@@ -414,8 +368,30 @@
     });
   }
 
+  function initStrip() {
+    $$(".strip-shell").forEach(function (shell) {
+      var strip = $(".strip", shell);
+      var prev = $(".strip-prev", shell), next = $(".strip-next", shell);
+      if (!strip || !prev || !next) return;
+      function step() {
+        var item = strip.querySelector(".gal-item");
+        return item ? item.getBoundingClientRect().width + 20 : 340;
+      }
+      function update() {
+        var max = strip.scrollWidth - strip.clientWidth - 4;
+        prev.toggleAttribute("disabled", strip.scrollLeft <= 4);
+        next.toggleAttribute("disabled", strip.scrollLeft >= max);
+      }
+      prev.addEventListener("click", function () { strip.scrollBy({ left: -step(), behavior: reduce ? "auto" : "smooth" }); });
+      next.addEventListener("click", function () { strip.scrollBy({ left: step(), behavior: reduce ? "auto" : "smooth" }); });
+      strip.addEventListener("scroll", update, { passive: true });
+      window.addEventListener("resize", update, { passive: true });
+      update();
+    });
+  }
+
   /* ─────────────────────────────────────────────────────────────────────
-     11. BOOKING  (form → WhatsApp / email, hero quick-bar, date logic)
+     10. BOOKING  (form → Web3Forms / WhatsApp / email · hero bar · prefill)
      ───────────────────────────────────────────────────────────────────── */
   function initBooking() {
     function val(id) { var el = $("#" + id); return el ? el.value.trim() : ""; }
@@ -425,7 +401,7 @@
           rm = val("f-room"), g = val("f-guests"), nt = val("f-notes");
       mark("f-name", !n); mark("f-checkin", !ci); mark("f-checkout", !co); mark("f-room", !rm);
       if (!n || !ci || !co || !rm) {
-        alert("Please fill in your name, dates and room type to continue.");
+        alert("Please fill in your name, dates and residence type to continue.");
         var bad = $(".field .invalid"); if (bad) bad.focus();
         return null;
       }
@@ -438,7 +414,7 @@
     function msg(b) {
       var m = "Hello Denver Elysium!%0A%0AI'd like to book a stay:%0A%0A" +
         "Name: " + encodeURIComponent(b.n) + "%0A" +
-        "Room: " + encodeURIComponent(b.rm) + "%0A" +
+        "Residence: " + encodeURIComponent(b.rm) + "%0A" +
         "Check-in: " + b.ci + "%0ACheck-out: " + b.co + "%0AGuests: " + b.g;
       if (b.p) m += "%0APhone: " + encodeURIComponent(b.p);
       if (b.nt) m += "%0ANotes: " + encodeURIComponent(b.nt);
@@ -447,8 +423,8 @@
     function confirmMsg(b, custom) {
       var el = $("#bookConfirm"); if (!el) return;
       el.className = "book-confirm"; el.style.display = "block";
-      el.innerHTML = custom || ("✓ Thank you, " + b.n.split(" ")[0] + "! Your request for the " +
-        b.rm.split("—")[0].trim() + " is ready — send it through and we'll confirm your dates shortly.");
+      el.innerHTML = custom || ("Thank you, " + b.n.split(" ")[0] + " — your request for the " +
+        b.rm.split("—")[0].trim() + " is ready. Send it through and we'll confirm your dates shortly.");
       el.scrollIntoView({ behavior: "smooth", block: "nearest" });
     }
     function errorMsg(text) {
@@ -484,7 +460,7 @@
         .then(function (r) { return r.json(); })
         .then(function (j) {
           setBusy(sendBtn, false);
-          if (j && j.success) { confirmMsg(b, "✓ Thank you, " + b.n.split(" ")[0] + "! Your request has been sent — we'll confirm your dates shortly."); form.reset(); }
+          if (j && j.success) { confirmMsg(b, "Thank you, " + b.n.split(" ")[0] + " — your request has been sent. We'll confirm your dates shortly."); form.reset(); }
           else throw new Error("web3forms");
         })
         .catch(function () {
@@ -511,12 +487,12 @@
     var hero = $("#heroCheck");
     if (hero) hero.addEventListener("click", function () {
       var ci = val("h-checkin"), co = val("h-checkout"), g = (val("h-guests").match(/\d+/) || ["2"])[0];
-      if ($("#book")) {                     // booking form on this page
+      if ($("#book")) {
         if (ci && $("#f-checkin")) $("#f-checkin").value = ci;
         if (co && $("#f-checkout")) $("#f-checkout").value = co;
         if ($("#f-guests")) $("#f-guests").value = g;
         $("#book").scrollIntoView({ behavior: "smooth" });
-      } else {                              // carry dates to contact page
+      } else {
         stash({ ci: ci, co: co, g: g });
         window.location.href = "contact.html";
       }
@@ -553,7 +529,7 @@
   }
 
   /* ─────────────────────────────────────────────────────────────────────
-     12. MISC  (year, image fallback)
+     11. MISC  (year, image fallback)
      ───────────────────────────────────────────────────────────────────── */
   function initMisc() {
     $$(".year").forEach(function (el) { el.textContent = new Date().getFullYear(); });
@@ -565,15 +541,13 @@
     });
   }
 
-  /* ── startup: everything that should run after the preloader reveals ── */
+  /* ── startup: runs after the preloader reveals ── */
   var started = false;
   function startup() {
     if (started) return; started = true;
     initReveal();
     initCounters();
     initParallax();
-    initMagnetic();
-    initHeroBloom();
   }
 
   /* ── boot ── */
@@ -583,9 +557,9 @@
     initTour();
     initLightbox();
     initGalleryFilter();
+    initStrip();
     initBooking();
     initMisc();
-    initCursor();
     initTransitions();
     runPreloader(); // calls startup() when it reveals (or immediately if none)
   }

@@ -189,7 +189,7 @@ def write_manifest():
     m = {"name": "Denver Elysium", "short_name": "Denver Elysium",
          "description": "Luxury furnished apartments — Akright City, Bwebajja.",
          "start_url": "./index.html", "display": "standalone",
-         "background_color": "#06201D", "theme_color": "#0A2A26",
+         "background_color": "#0B1D17", "theme_color": "#12261F",
          "icons": [{"src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png"},
                    {"src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png",
                     "purpose": "any maskable"}]}

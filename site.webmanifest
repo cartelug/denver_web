@@ -4,8 +4,8 @@
   "description": "Luxury furnished apartments \u2014 Akright City, Bwebajja.",
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#06201D",
-  "theme_color": "#0A2A26",
+  "background_color": "#0B1D17",
+  "theme_color": "#12261F",
   "icons": [
     {
       "src": "assets/icon-192.png",
