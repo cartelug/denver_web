@@ -541,6 +541,26 @@
     });
   }
 
+  /* ─────────────────────────────────────────────────────────────────────
+     12. HERO SLIDESHOW  (slow crossfade, pauses off-screen)
+     ───────────────────────────────────────────────────────────────────── */
+  function initHeroSlides() {
+    var hero = $(".hero"), slides = $$(".hero-media .slide");
+    if (!hero || slides.length < 2 || reduce) return;
+    var idxEl = $("#heroSlideIdx");
+    var i = 0, visible = true;
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (es) { visible = es[0].isIntersecting; }, { threshold: 0 }).observe(hero);
+    }
+    setInterval(function () {
+      if (!visible || document.hidden) return;
+      slides[i].classList.remove("on");
+      i = (i + 1) % slides.length;
+      slides[i].classList.add("on");
+      if (idxEl) idxEl.textContent = (i + 1 < 10 ? "0" : "") + (i + 1);
+    }, 6500);
+  }
+
   /* ── startup: runs after the preloader reveals ── */
   var started = false;
   function startup() {
@@ -548,6 +568,7 @@
     initReveal();
     initCounters();
     initParallax();
+    initHeroSlides();
   }
 
   /* ── boot ── */
